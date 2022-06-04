@@ -21,10 +21,11 @@ class Search extends React.Component {
                 onKeyUp={this.handleEnter}
             />
             <button
-                className=""
                 onClick={() => {this.props.handleEnter(this.state.search)}}>
                     search
                 </button>
         </div>
     }
 }
+
+export default Search;
