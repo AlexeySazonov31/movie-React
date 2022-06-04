@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Movies from "./Movies";
-import Search from "./Search";
 import Movie from "./Movie";
+import Search from "./Search";
 
 function Main() {
 
