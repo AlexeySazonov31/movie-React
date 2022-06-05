@@ -60,7 +60,10 @@ code {
 .header {
   position: sticky;
   top: 0;
-  height: 60px;
+  height: auto;
   background-color: #19181A;
   color: white;
+}
+.searchInp {
+  color: #000;
 }

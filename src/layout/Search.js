@@ -1,31 +1,32 @@
 import React, {useState} from "react";
 
-function Search(props) {
+function Search({handleEnterParent}) {
 
     const [search, setSearch] = useState('');
     const [type, setType] = useState('all');
 
     const handleEnter = (event) => {
         if(event.key === 'Enter'){
-            props.handleEnter(search, type);
+            handleEnterParent(search, type);
         }
     }
 
     const handleFilter = (event) => {
         setType(event.target.value);
-        props.handleEnter(search, event.target.value);
+        handleEnterParent(search, event.target.value);
     }
 
     return <div>
         <input
+            className="searchInp"
             type="text"
             value={search}
-            onChange={event => { setSearch(event.target.value) }}
+            onChange={ (event) => { setSearch(event.target.value) }}
             placeholder='name movie'
             onKeyUp={handleEnter}
         />
         <button
-            onClick={() => {props.handleEnter(search,type)}}>
+            onClick={() => {handleEnterParent(search,type)}}>
             search
         </button>
         <div>

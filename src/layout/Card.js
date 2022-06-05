@@ -18,7 +18,7 @@ function Card(props){
                 onClick={ 
                     event => {event.preventDefault(); props.handleReadMore(imdbID)}
                     }
-                >Read more</a>
+            >Read more</a>
         </p>
     </div>
 }
