@@ -5,6 +5,7 @@ import Movie from "./layout/Movie";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
+let apiKey = ['k_muf4olu9', 'k_7yh97abi'];
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://imdb-api.com/en/API/MostPopularMovies/k_muf4olu9")
+    fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey[1]}`)
       .then((res) => res.json())
       .then((data) => {
         setMovies( data.items ? data.items : [] );
@@ -27,7 +28,7 @@ function App() {
     setLoading(true);
     setShow("search");
     search = encodeURIComponent(search);
-    let url = `https://imdb-api.com/en/API/Search/k_muf4olu9/${search}`;
+    let url = `https://imdb-api.com/en/API/Search/${apiKey[1]}/${search}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -39,7 +40,7 @@ function App() {
   const handleReadMore = (id) => {
     setLoading(true);
     setShow("movie");
-    fetch(`https://imdb-api.com/en/API/Title/k_muf4olu9/${id}`)
+    fetch(`https://imdb-api.com/en/API/Title/${apiKey[1]}/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setMovie(data.title ? data : {});
