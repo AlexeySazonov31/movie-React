@@ -5,6 +5,7 @@ import Movie from "./layout/Movie";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
+
 function App() {
 
   const [movie, setMovie] = useState({});
@@ -13,10 +14,10 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://www.omdbapi.com/?apikey=75468291&s=matrix")
+    fetch("https://imdb-api.com/en/API/MostPopularMovies/k_muf4olu9")
       .then((res) => res.json())
       .then((data) => {
-        setMovies( data.Search ? data.Search : [] );
+        setMovies( data.items ? data.items : [] );
         setLoading( false );
       });
   }, []);
@@ -26,14 +27,11 @@ function App() {
     setLoading(true);
     setShow("search");
     search = encodeURIComponent(search);
-    let url = `http://www.omdbapi.com/?apikey=75468291&s=${search}`;
-    if (type !== "all") {
-      url = url + `&type=${type}`;
-    }
+    let url = `https://imdb-api.com/en/API/Search/k_muf4olu9/${search}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setMovies(data.Search ? data.Search : []);
+        setMovies(data.searchType ? data.results : []);
         setLoading(false);
       });
   };
@@ -41,10 +39,10 @@ function App() {
   const handleReadMore = (id) => {
     setLoading(true);
     setShow("movie");
-    fetch(`http://www.omdbapi.com/?apikey=75468291&i=${id}&plot=full`)
+    fetch(`https://imdb-api.com/en/API/Title/k_muf4olu9/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setMovie(data.Title ? data : {});
+        setMovie(data.title ? data : {});
         setLoading(false);
       });
   };

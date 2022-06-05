@@ -16,7 +16,6 @@ function Search({ handleEnterParent }) {
     setType(event.target.value);
     handleEnterParent(search, event.target.value);
   };
-  console.log(search)
   return (
     <div>
       <div className="form">

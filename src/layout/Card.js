@@ -1,35 +1,38 @@
 function Card(props){
 
     const {
-        Title,
-        Year,
-        imdbID,
-        Type,
-        Poster
+        title,
+        crew,
+        id,
+        imDbRating,
+        year,
+        rank,
+        image,
+        fullTitle
     } = props;
 
-    const text = Title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
+    const text = title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
 
-    return <div id={"movie-" + imdbID}>
-        {Poster !== 'N/A' ? (
-            <img
-                className="activator"
-                src={Poster}
-                alt=""
-            />
-        ) : (
-            <img
-                className="activator"
-                src={`https://via.placeholder.com/300x430.png?text=${text}`}
-                alt=""
-            />
+    console.log(image)
+    
+    return <div id={"movie-" + id}>
+        {image !== 'https://imdb-api.com/images/original/nopicture.jpg' ? (
+                    <img
+                        src={image}
+                        alt=""
+                    />
+                ) : (
+                    <img
+                        src={`https://via.placeholder.com/300x430.png?text=${text}`}
+                        alt=""
+                    />
         )}
-        <h3>{Title}</h3>
+        <h3>{fullTitle ? fullTitle : title}</h3>
         <p>
-            <span>{Year}, {Type}</span>
+            <span>{year}, {imDbRating}</span>
             <button
                 onClick={ 
-                    event => {event.preventDefault(); props.handleReadMore(imdbID)}
+                    event => props.handleReadMore(id)
                     }
             >Read more</button>
         </p>

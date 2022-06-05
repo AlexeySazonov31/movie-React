@@ -8,7 +8,7 @@ function Header(props) {
     <header className="header">
       <div className="headerGrid">
 
-        <h2>Movie search</h2>
+        <h2>MovieS</h2>
 
         <Search handleEnterParent={props.handleEnterParent} />
 
@@ -25,8 +25,8 @@ function Header(props) {
 
       </div>
 
-      {menuActive ? <div>sf</div> : <></>}
-      
+      {menuActive ? <div>sffsf</div> : <></>}
+
     </header>
   );
 }

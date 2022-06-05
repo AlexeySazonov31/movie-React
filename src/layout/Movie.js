@@ -1,37 +1,50 @@
 function Movie(props){
-    if(!props.Title){
+    if(!props.title){
         return <p>Movie not found</p>
     }
     const {
-        Title,
-        Year,
-        Runtime,
-        Genre,
-        Actors,
-        Plot,
-        Poster,
+        id,
+        title,
+        originalTitle,
+        fullTitle,
+        year,
+        plot,
+        awards,
+        image,
+        type,
+        directors,
+        stars,
+        genres,
+        countries,
+        languages,
+        imDbRating,
     } = props;
-    const text = Title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
+    const text = title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
     return <div>
-        <h3>{Title}</h3>
-        {Poster !== 'N/A' ? (
+        <h3>{fullTitle ? fullTitle : title}</h3>
+        {image !== 'https://imdb-api.com/images/original/nopicture.jpg' ? (
                     <img
-                        src={Poster}
+                        src={image}
                         alt=""
                     />
                 ) : (
                     <img
                         src={`https://via.placeholder.com/300x430.png?text=${text}`}
                         alt=""
-                    />
+                />
         )}
         <ul>
-            <li>Year: {Year}</li>
-            <li>Runtime: {Runtime}</li>
-            <li>Genre: {Genre}</li>
-            <li>Actors: {Actors}</li>
+            <li>Year: {year}</li>
+            <li>Awards: {awards}</li>
+            <li>Type: {type}</li>
+            <li>Directors: {directors}</li>
+            <li>Stars: {stars}</li>
+            <li>Genres: {genres}</li>
+            <li>Countries: {countries}</li>
+            <li>Languages: {languages}</li>
+            <li>IMDbRating: {imDbRating}</li>
         </ul>
-        <p>{Plot}</p>
+        <p>{plot}</p>
     </div>
 }
 

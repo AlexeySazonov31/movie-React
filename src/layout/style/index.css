@@ -348,4 +348,8 @@ code {
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease;
 }
+
+main img {
+  width: 300px;
+}
 /*# sourceMappingURL=index.css.map */

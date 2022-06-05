@@ -1,11 +1,34 @@
 import Card from "./Card";
 
 function Movies(props){
+
+    let elem;
+    if( props.movies ) {
+        elem = props.movies.map((movie,item) => {
+            if( item < 2 ){
+                return <Card 
+                key={movie.id}
+                handleReadMore={props.handleReadMore}
+                {...movie}
+            /> 
+            }
+        });
+    } else {
+        elem = <p>Nothing found</p>;
+    }
+
     return <div>
-        {props.movies.length ? (
+        {elem}
+    </div>
+}
+
+export default Movies;
+
+
+/*        {props.movies.length ? (
             props.movies.map(movie => 
                 <Card 
-                    key={movie.imdbID}
+                    key={movie.id}
                     handleReadMore={props.handleReadMore}
                     {...movie}
                     />
@@ -13,7 +36,4 @@ function Movies(props){
         ) : (
             <p>Nothing found</p>
         )}
-    </div>
-}
-
-export default Movies;
+ */
