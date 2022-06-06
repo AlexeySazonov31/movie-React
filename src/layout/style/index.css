@@ -252,13 +252,13 @@ code {
 .header {
   position: -webkit-sticky;
   position: sticky;
-  height: auto;
   top: 0;
   background-color: #19181A;
   color: white;
-  padding: 2%;
+  padding: 3% 2%;
   -webkit-transition: height 0.5s ease;
   transition: height 0.5s ease;
+  overflow: hidden;
 }
 
 .header .headerGrid {
@@ -281,7 +281,7 @@ code {
 
 .header .headerGrid .form {
   position: relative;
-  width: 95%;
+  width: 70%;
   margin: 0 auto;
   background: #00000085;
   border: 1px solid white;
@@ -326,7 +326,7 @@ code {
 .header .headerGrid h2 {
   font-size: 28px;
   font-family: Courgette;
-  margin-left: 19%;
+  margin-left: 4%;
 }
 
 .header .headerGrid input {
@@ -335,7 +335,7 @@ code {
 }
 
 .header .headerGrid .buttonMenu {
-  background-color: #000;
+  background-color: #1a181b;
   border: none;
 }
 
@@ -347,6 +347,42 @@ code {
   border-radius: 6px;
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease;
+}
+
+.header ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.header ul li {
+  font-size: 20px;
+  text-align: center;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  border-radius: 8px;
+  margin-top: 3%;
+  padding: 10px;
+  font-family: Courgette;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.header ul li span {
+  color: #92922d;
+}
+
+.header ul li:hover {
+  background-color: #322f33;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.header ul li:active {
+  background-color: #3f3642;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
 main img {

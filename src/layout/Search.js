@@ -38,17 +38,7 @@ function Search({ handleEnterParent }) {
 
 
       <div>
-          
-        
-      </div>
-    </div>
-  );
-}
-
-export default Search;
-
-/*
-{ filterActive ? ( <>
+      { filterActive ? ( <>
               <label>
               <input
                 type="radio"
@@ -86,7 +76,15 @@ export default Search;
             </button>
             </>
           ) : (
-              <button className="buttonFilter" onClick={() => {setFilterActive(!filterActive)}}>
-                 filter
-              </button>
-          ) }*/ 
+            <button className="buttonFilter" onClick={() => {setFilterActive(!filterActive)}}>
+            </button>
+          ) }
+        
+      </div>
+    </div>
+  );
+}
+
+export default Search;
+
+ 

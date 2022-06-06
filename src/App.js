@@ -7,15 +7,16 @@ import Footer from "./layout/Footer";
 
 let apiKey = ['k_muf4olu9', 'k_7yh97abi'];
 
+// !!!! end URL: keyAPi
 function App() {
 
   const [movie, setMovie] = useState({});
-  const [show, setShow] = useState("index");
+  const [show, setShow] = useState("Top 250 Movies");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey[1]}`)
+    fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey[0]}`)
       .then((res) => res.json())
       .then((data) => {
         setMovies( data.items ? data.items : [] );
@@ -28,7 +29,7 @@ function App() {
     setLoading(true);
     setShow("search");
     search = encodeURIComponent(search);
-    let url = `https://imdb-api.com/en/API/Search/${apiKey[1]}/${search}`;
+    let url = `https://imdb-api.com/en/API/Search/${apiKey[0]}/${search}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -40,7 +41,7 @@ function App() {
   const handleReadMore = (id) => {
     setLoading(true);
     setShow("movie");
-    fetch(`https://imdb-api.com/en/API/Title/${apiKey[1]}/${id}`)
+    fetch(`https://imdb-api.com/en/API/Title/${apiKey[0]}/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setMovie(data.title ? data : {});
