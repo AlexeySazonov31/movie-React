@@ -275,12 +275,13 @@ code {
 
     .form {
       position: relative;
-      width: 70%;
+      width: 75%;
       margin: 0 auto;
       background: #00000085;
       border: 1px solid white;
       border-radius: 4px;
       padding: 0 7px;
+      margin-left: 0;
       
     input,
     button {
@@ -290,7 +291,7 @@ code {
     }
 
     input {
-      width: 83%;
+      width: 81%;
       height: 35px;
     }
 
@@ -312,12 +313,16 @@ code {
     }
 
     /* --------- */
-
-    .buttonFilter {
-      background-color: rgba(0, 0, 0, 0);
-      color: white;
-      border: none;
+    .search {
+      display: flex;
+      .buttonFilter {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        padding-top: 5px;
+      }
     }
+
 
     h2 {
       font-size: 28px;
@@ -371,6 +376,20 @@ code {
     li:active {
       background-color: #3f3642;
       transition: background-color 0.2s;
+    }
+  }
+  .labelDiv {
+    width: 97%;
+    padding: 4px;
+    border-bottom: 1px solid rgb(136, 136, 136);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin: 15px auto;
+    padding-bottom: 10px;
+    span {
+      margin-left: 10px;
     }
   }
 

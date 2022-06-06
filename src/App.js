@@ -29,7 +29,16 @@ function App() {
     setLoading(true);
     setShow("search");
     search = encodeURIComponent(search);
-    let url = `https://imdb-api.com/en/API/Search/${apiKey[0]}/${search}`;
+
+    let url;
+    if( type === 'movie' ){
+      url = `https://imdb-api.com/en/API/SearchMovie/${apiKey[0]}/${search}`;
+    } else if (type === 'series'){
+      url = `https://imdb-api.com/en/API/SearchSeries/${apiKey[0]}/${search}`;
+    } else {
+      url = `https://imdb-api.com/en/API/Search/${apiKey[0]}/${search}`;
+    }
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {

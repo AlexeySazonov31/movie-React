@@ -281,12 +281,13 @@ code {
 
 .header .headerGrid .form {
   position: relative;
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
   background: #00000085;
   border: 1px solid white;
   border-radius: 4px;
   padding: 0 7px;
+  margin-left: 0;
 }
 
 .header .headerGrid .form input,
@@ -297,7 +298,7 @@ code {
 }
 
 .header .headerGrid .form input {
-  width: 83%;
+  width: 81%;
   height: 35px;
 }
 
@@ -317,10 +318,17 @@ code {
   color: #ffffff;
 }
 
-.header .headerGrid .buttonFilter {
+.header .headerGrid .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .headerGrid .search .buttonFilter {
   background-color: rgba(0, 0, 0, 0);
   color: white;
   border: none;
+  padding-top: 5px;
 }
 
 .header .headerGrid h2 {
@@ -383,6 +391,24 @@ code {
   background-color: #3f3642;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
+}
+
+.header .labelDiv {
+  width: 97%;
+  padding: 4px;
+  border-bottom: 1px solid #888888;
+  border-radius: 8px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin: 15px auto;
+  padding-bottom: 10px;
+}
+
+.header .labelDiv span {
+  margin-left: 10px;
 }
 
 main img {

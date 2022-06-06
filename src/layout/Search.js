@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+import filterImg from './img/filter.png';
 
-function Search({ handleEnterParent }) {
-  const [search, setSearch] = useState("");
-  const [type, setType] = useState("all");
-
-  const [filterActive, setFilterActive] = useState(false);
-
+function Search({
+  handleEnterParent,
+  filterActive,
+  setFilterActive,
+  search,
+  setSearch,
+  type,
+}) {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
       handleEnterParent(search, type);
     }
   };
 
-  const handleFilter = (event) => {
-    setType(event.target.value);
-    handleEnterParent(search, event.target.value);
-  };
   return (
-    <div>
+    <div className="search">
+      <button
+        className="buttonFilter"
+        onClick={() => {
+          setFilterActive(!filterActive);
+        }}
+      >
+        <img src={filterImg} alt="fl"></img>
+      </button>
       <div className="form">
         <input
           type="text"
@@ -32,59 +39,10 @@ function Search({ handleEnterParent }) {
           onClick={() => {
             handleEnterParent(search, type);
           }}
-        >
-        </button>
-      </div>
-
-
-      <div>
-      { filterActive ? ( <>
-              <label>
-              <input
-                type="radio"
-                name="type"
-                value="all"
-                onChange={handleFilter}
-                checked={type === "all" ? true : false}
-              />
-              <span>all</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="type"
-                value="movie"
-                onChange={handleFilter}
-                checked={type === "movie" ? true : false}
-              />
-              <span>movies</span>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="type"
-                value="series"
-                onChange={handleFilter}
-                checked={type === "series" ? true : false}
-              />
-              <span>series</span>
-            </label>
-            <button className="buttonFilter" onClick={() => {
-                setFilterActive(!filterActive)
-            }}>
-	            &#10008;
-            </button>
-            </>
-          ) : (
-            <button className="buttonFilter" onClick={() => {setFilterActive(!filterActive)}}>
-            </button>
-          ) }
-        
+        ></button>
       </div>
     </div>
   );
 }
 
 export default Search;
-
- 
