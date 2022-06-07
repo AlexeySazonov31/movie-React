@@ -273,15 +273,22 @@ code {
       box-sizing: border-box;
     }
 
+    .form:hover {
+      background: #0a090a;
+      transition: background 0.2s;
+    }
+
     .form {
       position: relative;
       width: 75%;
       margin: 0 auto;
-      background: #00000085;
+      background: #19181A;
       border: 1px solid white;
       border-radius: 4px;
       padding: 0 7px;
       margin-left: 0;
+      transition: background 0.2s;
+
       
     input,
     button {
@@ -328,7 +335,8 @@ code {
       font-size: 28px;
       font-family: Courgette;
       margin-left: 4%;
-
+      font-weight: 100;
+      padding-top: 1px;
     }
 
     input {
@@ -341,7 +349,7 @@ code {
       border: none;
 
       hr {
-        height: 6px;
+        height: 3px;
         margin: 8px;
         border: none;
         background-color: white;
@@ -368,6 +376,10 @@ code {
       span {
         color: rgb(146, 146, 45);
       }
+    }
+    .selected {
+      background-color: #322f33;
+      transition: background-color 0.2s;
     }
     li:hover {
       background-color: #322f33;

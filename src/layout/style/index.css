@@ -279,15 +279,23 @@ code {
           box-sizing: border-box;
 }
 
+.header .headerGrid .form:hover {
+  background: #0a090a;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
 .header .headerGrid .form {
   position: relative;
   width: 75%;
   margin: 0 auto;
-  background: #00000085;
+  background: #19181A;
   border: 1px solid white;
   border-radius: 4px;
   padding: 0 7px;
   margin-left: 0;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
 }
 
 .header .headerGrid .form input,
@@ -335,6 +343,8 @@ code {
   font-size: 28px;
   font-family: Courgette;
   margin-left: 4%;
+  font-weight: 100;
+  padding-top: 1px;
 }
 
 .header .headerGrid input {
@@ -348,7 +358,7 @@ code {
 }
 
 .header .headerGrid .buttonMenu hr {
-  height: 6px;
+  height: 3px;
   margin: 8px;
   border: none;
   background-color: white;
@@ -379,6 +389,12 @@ code {
 
 .header ul li span {
   color: #92922d;
+}
+
+.header ul .selected {
+  background-color: #322f33;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
 }
 
 .header ul li:hover {

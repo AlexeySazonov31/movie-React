@@ -28,9 +28,15 @@ function Header(props) {
   const [type, setType] = useState("all");
 
   const menuElem = menu.map((note, item) => {
+    let className;
+    if( props.show === note.name ){
+      className = 'selected';
+    }
     return (
-      <li key={item} onClick={ () => {
+      <li className={className} key={item} onClick={ () => {
         props.handleEnterParent( false, type, note.url );
+        props.setShow(note.name);
+        setMenuActive(false);
       } }>
         <span>&#9734;</span> {note.name} <span>&#9734;</span>
       </li>
@@ -40,21 +46,22 @@ function Header(props) {
   let ht;
   if (menuActive) {
     if(filterActive){
-      ht = { height: "350px" };
+      ht = { height: "340px" };
     } else {
-      ht = { height: "300px" };
+      ht = { height: "290px" };
     }
   } else {
     if ( filterActive ){
-      ht = { height: "105px" };
+      ht = { height: "95px" };
     } else {
-      ht = { height: "52px" };
+      ht = { height: "42px" };
     }
   }
 
   const handleFilter = (event) => {
     setType(event.target.value);
     props.handleEnterParent(search, event.target.value, false);
+    setMenuActive(false);
   };
 
   return (
@@ -69,6 +76,8 @@ function Header(props) {
           search={search}
           setSearch={setSearch}
           type={type}
+          setShow={props.setShow}
+          setMenuActive={setMenuActive}
         />
 
         <button

@@ -8,10 +8,14 @@ function Search({
   search,
   setSearch,
   type,
+  setShow,
+  setMenuActive
 }) {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
       handleEnterParent(search, type, false);
+      setShow('search');
+      setMenuActive(false);
     }
   };
 
@@ -38,6 +42,8 @@ function Search({
         <button
           onClick={() => {
             handleEnterParent(search, type, false);
+            setShow('search');
+            setMenuActive(false);
           }}
         ></button>
       </div>
