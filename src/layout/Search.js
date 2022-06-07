@@ -11,7 +11,7 @@ function Search({
 }) {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
-      handleEnterParent(search, type);
+      handleEnterParent(search, type, false);
     }
   };
 
@@ -37,7 +37,7 @@ function Search({
         />
         <button
           onClick={() => {
-            handleEnterParent(search, type);
+            handleEnterParent(search, type, false);
           }}
         ></button>
       </div>

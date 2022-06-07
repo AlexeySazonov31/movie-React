@@ -19,6 +19,7 @@ function Movie(props){
         languages,
         imDbRating,
     } = props;
+    console.log(image);
     const text = title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
     return <div>
         <h3>{fullTitle ? fullTitle : title}</h3>

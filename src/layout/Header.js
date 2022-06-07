@@ -29,7 +29,9 @@ function Header(props) {
 
   const menuElem = menu.map((note, item) => {
     return (
-      <li key={item}>
+      <li key={item} onClick={ () => {
+        props.handleEnterParent( false, type, note.url );
+      } }>
         <span>&#9734;</span> {note.name} <span>&#9734;</span>
       </li>
     );
@@ -52,7 +54,7 @@ function Header(props) {
 
   const handleFilter = (event) => {
     setType(event.target.value);
-    props.handleEnterParent(search, event.target.value);
+    props.handleEnterParent(search, event.target.value, false);
   };
 
   return (

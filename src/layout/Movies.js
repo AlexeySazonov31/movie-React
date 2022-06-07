@@ -5,7 +5,7 @@ function Movies(props){
     let elem;
     if( props.movies ) {
         elem = props.movies.map((movie,item) => {
-            if( item < 250 ){
+            if( item < 10 ){
                 return <Card 
                 key={movie.id}
                 handleReadMore={props.handleReadMore}

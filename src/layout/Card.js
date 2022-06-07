@@ -10,15 +10,20 @@ function Card(props){
         image,
         fullTitle
     } = props;
-
     const text = title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
 
-    console.log(image)
+    // the function resizes the image in the link
+    function normImageUrl(urlImage){
+        let res = urlImage.replace(/176/, '960');
+        res = res.replace(/128/g, '648');
+        return res;
+    }
+
     
     return <div id={"movie-" + id}>
         {image !== 'https://imdb-api.com/images/original/nopicture.jpg' ? (
                     <img
-                        src={image}
+                        src={normImageUrl(image)}
                         alt=""
                     />
                 ) : (
