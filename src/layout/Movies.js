@@ -21,7 +21,9 @@ function Movies(props) {
 
     });
   } else {
-    elem = <p>Nothing found</p>;
+    elem =  <div className="error">
+      <p>Nothing found</p>
+      </div>;
   }
 
 
@@ -59,16 +61,3 @@ function Movies(props) {
 }
 
 export default Movies;
-
-/*        {props.movies.length ? (
-            props.movies.map(movie => 
-                <Card 
-                    key={movie.id}
-                    handleReadMore={props.handleReadMore}
-                    {...movie}
-                    />
-            )
-        ) : (
-            <p>Nothing found</p>
-        )}
- */

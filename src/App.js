@@ -6,10 +6,9 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
 let apiKey = ['k_7yh97abi', 'k_muf4olu9' ]; //101, 08, 
+apiKey = apiKey[1]
 // !!!! end URL: keyAPi
 function App() {
-
-  const [NumberKeyApi, setNumberKeyApi] = useState(0);
 
   const [movie, setMovie] = useState({});
   const [show, setShow] = useState("Most Popular Movies");
@@ -18,23 +17,12 @@ function App() {
 
   // first page
   useEffect(() => {
-    fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey[NumberKeyApi]}`)
+    fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if( data.errorMessage !== '' ){
-          fetch(`https://imdb-api.com/en/API/MostPopularMovies/${apiKey[NumberKeyApi+1]}`)
-              .then((res) => res.json())
-              .then((data) => {
-                setMovies( data.items ? data.items : [] );
-                setLoading( false );
-        })
-          setNumberKeyApi(NumberKeyApi+1);
-          console.log('keyApi: ' + (NumberKeyApi+1));
-        } else {
-          setMovies( data.items ? data.items : [] );
-          setLoading( false );
-        }
+        setMovies( data.items ? data.items : [] );
+        setLoading( false );
       })
   }, []);
 
@@ -50,28 +38,27 @@ function App() {
 
     search = encodeURIComponent(search);
 
-    fetch( urlHandleEnter(URLSearch,NumberKeyApi,search,type) )
+    
+  let url;
+
+  if( URLSearch ) {
+
+    url = URLSearch + apiKey;
+
+  } else if (search){
+
+    if( type === 'movie' ){
+      url = `https://imdb-api.com/en/API/SearchMovie/${apiKey}/${search}`;
+    } else if (type === 'series'){
+      url = `https://imdb-api.com/en/API/SearchSeries/${apiKey}/${search}`;
+    } else {
+      url = `https://imdb-api.com/en/API/Search/${apiKey}/${search}`;
+    }
+  }
+
+    fetch( url )
       .then((response) => response.json())
       .then((data) => {
-        if( data.errorMessage !== '' ){
-          fetch( urlHandleEnter(URLSearch,NumberKeyApi+1,search,type) )
-          .then((response) => response.json())
-          .then((data) => {
-            if( data.searchType ){
-              setMovies(data.results);
-              setNumberKeyApi(NumberKeyApi+1);
-              console.log('keyApi: ' + (NumberKeyApi+1));
-            } else if ( data.items ){
-              setMovies(data.items);
-              setNumberKeyApi(NumberKeyApi+1);
-              console.log('keyApi: ' + (NumberKeyApi+1));
-            } else {
-              setMovies([]);
-              setNumberKeyApi(NumberKeyApi+1);
-              console.log('keyApi: ' + (NumberKeyApi+1));
-            };
-          });
-        } else {
           if( data.searchType ){
             setMovies(data.results);
           } else if ( data.items ){
@@ -79,35 +66,21 @@ function App() {
           } else {
             setMovies([]);
           }
-        }
-
-
-
-        setLoading(false);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+          if( data.errorMessage ) {
+            setMovies([{title: data.errorMessage}])
+          }
+          setLoading(false);
+        })
   };
 
   const handleReadMore = (id) => {
     setLoading(true);
     setShow("movie");
-    fetch(`https://imdb-api.com/en/API/Title/${apiKey[NumberKeyApi]}/${id}`)
+    fetch(`https://imdb-api.com/en/API/Title/${apiKey}/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        if( data.errorMessage !== '' ){
-          fetch(`https://imdb-api.com/en/API/Title/${apiKey[NumberKeyApi+1]}/${id}`)
-          .then((response) => response.json())
-          .then((data) => {
-            setMovie(data.title ? data : {});
-            setNumberKeyApi(NumberKeyApi+1);
-            console.log('keyApi: ' + (NumberKeyApi+1));
-          })
-        } else {
           setMovie(data.title ? data : {});
-        }
-        setLoading(false);
+          setLoading(false);
       });
   };
 
@@ -117,7 +90,9 @@ function App() {
 
       <main>
         {loading ? (
-            <div className="loader">Loading...</div>
+          <div className="parentLoader">
+            <div className="loader"></div>
+          </div>
         ) : show === 'movie' ? (
             <Movie {...movie}/>
         ) : (
@@ -135,26 +110,3 @@ function App() {
 }
 
 export default App;
-
-// helper function: handleEnterParent  !
-function urlHandleEnter(URLSearch,NumberKeyApi,search,type){
-
-  let url;
-
-  if( URLSearch ) {
-
-    url = URLSearch + apiKey[NumberKeyApi];
-
-  } else if (search){
-
-    if( type === 'movie' ){
-      url = `https://imdb-api.com/en/API/SearchMovie/${apiKey[NumberKeyApi]}/${search}`;
-    } else if (type === 'series'){
-      url = `https://imdb-api.com/en/API/SearchSeries/${apiKey[NumberKeyApi]}/${search}`;
-    } else {
-      url = `https://imdb-api.com/en/API/Search/${apiKey[NumberKeyApi]}/${search}`;
-    }
-
-  }  
-  return url;
-}

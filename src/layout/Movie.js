@@ -1,6 +1,8 @@
 function Movie(props){
-    if(!props.title){
-        return <p>Movie not found</p>
+    if(!props.id){
+        return <div className="error">
+            <p>Movie not found</p>
+        </div>
     }
     const {
         id,
@@ -19,8 +21,7 @@ function Movie(props){
         languages,
         imDbRating,
     } = props;
-    console.log(image);
-    const text = title.replace(/^a-z0-9 /i, '').replace(/\s/, '+');
+
     return <div>
         <h3>{fullTitle ? fullTitle : title}</h3>
         {image !== 'https://imdb-api.com/images/original/nopicture.jpg' ? (
@@ -30,7 +31,7 @@ function Movie(props){
                     />
                 ) : (
                     <img
-                        src={`https://via.placeholder.com/300x430.png?text=${text}`}
+                        src={`https://via.placeholder.com/300x430.png?text=${title ? title : id}`}
                         alt=""
                 />
         )}
