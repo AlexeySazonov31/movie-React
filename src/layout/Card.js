@@ -14,13 +14,18 @@ function Card(props){
 
     // the function resizes the image in the link
     function normImageUrl(urlImage){
-        let res = urlImage.replace(/176/, '960');
-        res = res.replace(/128/g, '648');
+        let res;
+        if( /https:\/\/m\.media/.test(urlImage) ){
+            res = urlImage.replace(/https:\/\/m\.media-amazon\.com\/images\/M/, 'https://imdb-api.com/images/original');
+            res = res.replace(/\._[A-Z][0-9]_[A-Z][A-Z][0-9][0-9][0-9]_[A-Z][A-Z][0-9],[0-9],[0-9][0-9][0-9],[0-9][0-9][0-9]_[A-Z][A-Z]_/, '._V1_Ratio0.6751_AL_');
+        } else {
+            res = urlImage;
+        }
         return res;
     }
 
     
-    return <div id={"movie-" + id}>
+    return <div id={"movie-" + id} className='cardMovie'>
         {image !== 'https://imdb-api.com/images/original/nopicture.jpg' ? (
                     <img
                         src={normImageUrl(image)}

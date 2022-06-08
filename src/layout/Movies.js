@@ -26,11 +26,12 @@ function Movies(props) {
 
 
   return (
-    <div>
+    <div className="movies">
       {amountCard >= props.movies.length ? (
         <></>
       ) : (
         <button
+          className="buttonShow"
           onClick={() => {
             setAmountCard(props.movies.length);
           }}
@@ -38,11 +39,14 @@ function Movies(props) {
           show all
         </button>
       )}
-      {elem}
+      <div className="moviesContainer">
+          {elem}
+      </div>
       {amountCard >= props.movies.length ? (
         <></>
       ) : (
         <button
+          className="buttonShow"
           onClick={() => {
             setAmountCard(amountCard + 15);
           }}

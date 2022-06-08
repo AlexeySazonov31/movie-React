@@ -247,7 +247,6 @@ code {
 }
 
 /*---------------------header------------------------*/
-
 @font-face {
   font-family: Courgette;
   src: url('./Courgette/Courgette-Regular.ttf');
@@ -406,9 +405,65 @@ code {
   }
 
 }
+
+/*----main----------------------------------------------*/
 main {
-  img {
-    width: 70%;
-    border: 1px solid black;
+  .movies{
+    background-image: url('../img/backMovies.jpg');
+    background-position: center;
+    background-size: 100%;
+    padding: 15px 0;
+    .buttonShow {
+      display: flex;
+      margin: auto;
+      background: none;
+      color: #d4d4d4;
+      font-size: 19px;
+      border: none;
+      padding: 5px 15px;
+      font-family: Courgette;
+      font-weight: 100;
+      text-decoration: underline;
+    }
+
+    .moviesContainer {
+      display: grid;
+      grid-template-columns: 90%;
+      justify-content: center;
+      margin: 15px 0;
+
+  
+      .cardMovie{
+        border: 1px solid red;
+        justify-content: center;
+        img {
+          width: 80%;
+        }
+      }
+    }
   }
+
+}
+
+
+
+
+
+/*----footer----------------------------------------------*/
+
+footer {
+  background-color: #19181A;
+  color: rgb(121, 121, 121);
+  padding: 5% 10%;
+  text-align: center;
+  hr{
+    border: none;
+    height: 1px;
+    background-color: rgb(66, 66, 66);
+  }
+}
+
+/*------loader----------------------------------------------------*/
+.loader{
+  
 }
