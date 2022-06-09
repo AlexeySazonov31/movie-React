@@ -20,7 +20,7 @@ function Card(props) {
   // the function resizes the image in the link
   function normImageUrl(urlImage) {
     let idImage = urlImage.match( /\/([A-Za-z0-9@]){10,}\./);
-    return 'https://m.media-amazon.com/images/M' + idImage + '_V1_SX600.jpg';
+    return 'https://m.media-amazon.com/images/M' + idImage + '_V1_SX700.jpg';
   }
 
   return (
