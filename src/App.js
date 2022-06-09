@@ -7,7 +7,7 @@ import Footer from "./layout/Footer";
 
 
 let apiKeyOMDb = 75468291;
-let apiKeyIMDb = 'k_muf4olu9';
+let apiKeyIMDb = 'k_7yh97abi';
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -37,8 +37,6 @@ function App() {
   }
 
   const handleEnterParent = (search, type) => {
-    // URLSearch: true -- menu
-    // search: true -- search input
     if (search.trim() === "") return;
 
     setLoading(true);
@@ -55,6 +53,7 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setMovies(data.Search ? data.Search : []);
         setLoading(false);
       });
@@ -66,6 +65,7 @@ function App() {
     fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&i=${id}&plot=full`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setMovie(data.Title ? data : {});
         setLoading(false);
       });

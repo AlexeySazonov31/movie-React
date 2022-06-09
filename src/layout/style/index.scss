@@ -453,7 +453,25 @@ main {
           border-radius: 10px;
           margin-bottom: 5px;
         }
+        h3 {
+          padding-right: 5%;
+          padding-left: 5%;
+        }
       }
+    }
+  }
+
+  .movie {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100vh;
+    color: #c0c0c0;
+    img {
+      width: 80%;
+    }
+    p {
+      margin: 0;
     }
   }
 
@@ -522,17 +540,3 @@ footer {
 
 
 /*---------notFoundMovie------------------------------*/
-
-.error {
-  background-image: url('../img/backMovies.jpg');
-  background-position: center;
-  background-size: 100%;
-  height: 68vh;
-  p {
-    margin: 0;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    padding-top: 20px;
-  }
-}
