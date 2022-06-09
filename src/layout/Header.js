@@ -34,8 +34,8 @@ function Header(props) {
     }
     return (
       <li className={className} key={item} onClick={ () => {
-        props.handleEnterParent( false, type, note.url );
-        props.setShow(note.name);
+        //props.handleEnterParent( false, type, note.url );
+        //props.setShow(note.name);
         setMenuActive(false);
       } }>
         <span>&#9734;</span> {note.name} <span>&#9734;</span>
@@ -60,7 +60,7 @@ function Header(props) {
 
   const handleFilter = (event) => {
     setType(event.target.value);
-    props.handleEnterParent(search, event.target.value, false);
+    props.handleEnterParent(search, event.target.value);
     setMenuActive(false);
   };
 

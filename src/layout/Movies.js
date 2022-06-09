@@ -7,25 +7,17 @@ function Movies(props) {
   if (props.loading === true) setAmountCard(15);
 
   let elem;
-  if (props.movies) {
+  if (props.movies.length) {
     elem = props.movies.map((movie, item) => {
       if (item < amountCard) {
-        return (
-            <Card
-              key={movie.id}
-              handleReadMore={props.handleReadMore}
-              {...movie}
-            />
-          );
+        return <Card
+        key={movie.imdbID}
+        handleReadMore={props.handleReadMore}
+        movie={movie}
+      />;
       }
-
     });
-  } else {
-    elem =  <div className="error">
-      <p>Nothing found</p>
-      </div>;
   }
-
 
   return (
     <div className="movies">

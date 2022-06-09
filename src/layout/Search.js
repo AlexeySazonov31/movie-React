@@ -13,7 +13,7 @@ function Search({
 }) {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
-      handleEnterParent(search, type, false);
+      handleEnterParent(search, type);
       setShow('search');
       setMenuActive(false);
     }
@@ -41,7 +41,7 @@ function Search({
         />
         <button
           onClick={() => {
-            handleEnterParent(search, type, false);
+            handleEnterParent(search, type);
             setShow('search');
             setMenuActive(false);
           }}
