@@ -34,8 +34,8 @@ function Header(props) {
     }
     return (
       <li className={className} key={item} onClick={ () => {
-        //props.handleEnterParent( false, type, note.url );
-        //props.setShow(note.name);
+        props.setShow(note.name);
+        props.handleSelectionFilms(note.url);
         setMenuActive(false);
       } }>
         <span>&#9734;</span> {note.name} <span>&#9734;</span>

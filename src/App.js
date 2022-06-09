@@ -5,10 +5,9 @@ import Movie from "./layout/Movie";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-//  http://www.omdbapi.com/?apikey=your-api-key&s=matrix
-//  http://www.omdbapi.com/?apikey=your-api-key&i=tt0133093&plot=full
 
 let apiKeyOMDb = 75468291;
+let apiKeyIMDb = 'k_muf4olu9';
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -16,18 +15,26 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const Top250Movies = [];
-
-  // first page
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&s=matrix`)
+    fetch(`https://imdb-api.com/en/API/Top250Movies/${apiKeyIMDb}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setMovies(data.Search ? data.Search : []);
+        setMovies(data.items.length ? data.items : []);
         setLoading(false);
       });
   }, []);
+
+  const handleSelectionFilms = (url) => {
+    setLoading(true);
+    fetch( String(url + apiKeyIMDb) )
+      .then( res => res.json() )
+      .then( data => {
+        console.log(data);
+        setMovies(data.items.length ? data.items : []);
+        setLoading(false);
+      })
+  }
 
   const handleEnterParent = (search, type) => {
     // URLSearch: true -- menu
@@ -59,11 +66,9 @@ function App() {
     fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&i=${id}&plot=full`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-          setMovie(data.Title ? data : {});
-          setLoading(false);
+        setMovie(data.Title ? data : {});
+        setLoading(false);
       });
-
   };
 
   return (
@@ -72,6 +77,7 @@ function App() {
         handleEnterParent={handleEnterParent}
         show={show}
         setShow={setShow}
+        handleSelectionFilms={handleSelectionFilms}
       />
 
       <main>
@@ -96,5 +102,3 @@ function App() {
 }
 
 export default App;
-
-

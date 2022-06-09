@@ -11,7 +11,7 @@ function Movies(props) {
     elem = props.movies.map((movie, item) => {
       if (item < amountCard) {
         return <Card
-        key={movie.imdbID}
+        key={(movie.imdbID ? movie.imdbID : movie.id )}
         handleReadMore={props.handleReadMore}
         movie={movie}
       />;
