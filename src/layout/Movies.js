@@ -17,6 +17,8 @@ function Movies(props) {
       />;
       }
     });
+  } else {
+    elem = <div className="error"><span>Error:</span>Nothing found</div>
   }
 
   return (

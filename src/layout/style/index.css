@@ -253,6 +253,7 @@ code {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1;
   background-color: #19181A;
   color: white;
   padding: 3% 2%;
@@ -397,18 +398,6 @@ code {
   transition: background-color 0.2s;
 }
 
-.header ul li:hover {
-  background-color: #322f33;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-
-.header ul li:active {
-  background-color: #3f3642;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-
 .header .labelDiv {
   width: 97%;
   padding: 4px;
@@ -491,20 +480,92 @@ main .movies .moviesContainer .cardMovie h3 {
   padding-left: 5%;
 }
 
+main .movies .rank {
+  position: absolute;
+  background-color: #19181ae1;
+  padding: 4px 10px;
+  margin-top: 2%;
+  margin-right: 62%;
+  border-radius: 5px;
+  font-family: Courgette;
+  font-size: 23px;
+  color: #dbc339;
+}
+
 main .movie {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: 100vh;
-  color: #c0c0c0;
+  color: white;
 }
 
-main .movie img {
-  width: 80%;
+main .movie .brightness {
+  background-color: rgba(0, 0, 0, 0.64);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 30px;
 }
 
-main .movie p {
+main .movie .brightness img {
+  width: 45%;
+  border-radius: 7px;
+  float: left;
+  margin-left: 3%;
+  margin-right: 7%;
+  margin-bottom: 30px;
+  border: 2px solid black;
+}
+
+main .movie .brightness h3 {
+  font-size: 22px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+main .movie .brightness p {
   margin: 0;
+}
+
+main .movie .brightness table {
+  clear: both;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+main .movie .brightness table th {
+  font-size: 23px;
+  text-align: left;
+  padding-left: 18%;
+  padding-bottom: 10px;
+}
+
+main .movie .brightness table td {
+  color: #ffffff;
+  padding: 3px 0;
+}
+
+main .movie .brightness table .leftTb {
+  text-align: right;
+  padding-right: 8px;
+  font-weight: 500;
+}
+
+main .movie .brightness table .rightTb {
+  padding-left: 8px;
+  text-align: left;
+}
+
+main .movie .plot {
+  background: #131313;
+  color: #f0f0f0;
+  padding: 40px 50px;
+}
+
+main .movie .plot p {
+  margin: 0;
+  font-size: 18px;
 }
 
 /*----footer----------------------------------------------*/
@@ -513,6 +574,7 @@ footer {
   color: #797979;
   padding: 5% 10%;
   text-align: center;
+  border-top: 2px solid #424242;
 }
 
 footer hr {
@@ -566,4 +628,15 @@ footer hr {
 }
 
 /*---------notFoundMovie------------------------------*/
+.error {
+  height: 100vh;
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.error span {
+  color: red;
+  font-weight: 600;
+}
 /*# sourceMappingURL=index.css.map */

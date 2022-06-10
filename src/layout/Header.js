@@ -15,7 +15,7 @@ const menu = [
     url: "https://imdb-api.com/en/API/MostPopularTVs/",
   },
   {
-    name: "New Movies: Coming Soon",
+    name: "New Movies",
     url: "https://imdb-api.com/en/API/ComingSoon/",
   },
 ];
@@ -38,10 +38,12 @@ function Header(props) {
         props.handleSelectionFilms(note.url);
         setMenuActive(false);
       } }>
-        <span>&#9734;</span> {note.name} <span>&#9734;</span>
+         {note.name} 
       </li>
     );
   });
+  //        <span>&#9734;</span> {note.name} <span>&#9734;</span>
+
 
   let ht;
   if (menuActive) {
@@ -62,6 +64,7 @@ function Header(props) {
     setType(event.target.value);
     props.handleEnterParent(search, event.target.value);
     setMenuActive(false);
+    setFilterActive(false);
   };
 
   return (
