@@ -12,6 +12,7 @@ let apiKeyIMDb = 'k_7yh97abi';
 function App() {
   const [movie, setMovie] = useState({});
   const [show, setShow] = useState("Top 250 Movies");
+  const [pastShow, setPastShow] = useState('Top 250 Movies');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,6 +41,7 @@ function App() {
     if (search.trim() === "") return;
 
     setLoading(true);
+    setPastShow(show);
     setShow("search");
 
     search = encodeURIComponent(search);
@@ -61,6 +63,7 @@ function App() {
 
   const handleReadMore = (id) => {
     setLoading(true);
+    setPastShow(show);
     setShow("movie");
     fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&i=${id}&plot=full`)
       .then((response) => response.json())
@@ -70,7 +73,6 @@ function App() {
         setLoading(false);
       });
   };
-
   return (
     <>
       <Header
@@ -78,6 +80,9 @@ function App() {
         show={show}
         setShow={setShow}
         handleSelectionFilms={handleSelectionFilms}
+        pastShow={pastShow}
+        setPastShow={setPastShow}
+
       />
 
       <main>

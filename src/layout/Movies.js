@@ -8,13 +8,18 @@ function Movies(props) {
 
   let elem;
   if (props.movies.length) {
+    let pastID;
     elem = props.movies.map((movie, item) => {
       if (item < amountCard) {
-        return <Card
-        key={(movie.imdbID ? movie.imdbID : movie.id )}
-        handleReadMore={props.handleReadMore}
-        movie={movie}
-      />;
+        if( pastID !==  ( movie.imdbID ? movie.imdbID : movie.id )){
+          pastID = movie.imdbID ? movie.imdbID : movie.id;
+          return <Card
+          key={(movie.imdbID ? movie.imdbID : movie.id )}
+          handleReadMore={props.handleReadMore}
+          movie={movie}
+        />;
+        }
+        
       }
     });
   } else {

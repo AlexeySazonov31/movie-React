@@ -1,5 +1,7 @@
 import Search from "./Search";
 import { useState } from "react";
+import leftImg from './img/left.png';
+
 
 const menu = [
   {
@@ -34,9 +36,11 @@ function Header(props) {
     }
     return (
       <li className={className} key={item} onClick={ () => {
+        props.setPastShow(props.show);
         props.setShow(note.name);
         props.handleSelectionFilms(note.url);
         setMenuActive(false);
+        setFilterActive(false);
       } }>
          {note.name} 
       </li>
@@ -63,14 +67,22 @@ function Header(props) {
   const handleFilter = (event) => {
     setType(event.target.value);
     props.handleEnterParent(search, event.target.value);
-    setMenuActive(false);
     setFilterActive(false);
+    setMenuActive(false);
   };
 
   return (
     <header className="header" style={ht}>
       <div className="headerGrid">
-        <h2>MvS</h2>
+        { props.show === 'movie' ? (
+          <button className="backButton" onClick={() => {
+            props.setShow(props.pastShow)
+          }}>
+            <img src={leftImg}/>
+          </button> 
+        ) : (
+          <h2>MvS</h2>
+        ) }
 
         <Search
           handleEnterParent={props.handleEnterParent}
@@ -79,7 +91,9 @@ function Header(props) {
           search={search}
           setSearch={setSearch}
           type={type}
+          show={props.show}
           setShow={props.setShow}
+          setPastShow={props.setPastShow}
           setMenuActive={setMenuActive}
         />
 

@@ -38,7 +38,7 @@ function Card(props) {
           alt=""
         />
       ) : (
-        <img src={normImageUrl(Poster)} alt="" />
+        <img src={normImageUrl(Poster)} alt={Title + '(image)'} />
       )}
       <h3>{Title}</h3>
       <p>

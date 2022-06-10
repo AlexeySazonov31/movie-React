@@ -320,11 +320,8 @@ code {
   cursor: pointer;
 }
 
-.header .headerGrid .form button:before {
-  content: "\27AB";
-  font-family: FontAwesome;
-  font-size: 30px;
-  color: #ffffff;
+.header .headerGrid .form img {
+  margin-top: 30%;
 }
 
 .header .headerGrid .search {
@@ -346,6 +343,13 @@ code {
   margin-left: 4%;
   font-weight: 100;
   padding-top: 1px;
+}
+
+.header .headerGrid .backButton {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 5px 8px;
+  padding-bottom: 1px;
 }
 
 .header .headerGrid input {
