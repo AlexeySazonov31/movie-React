@@ -7,7 +7,7 @@ import Footer from "./layout/Footer";
 
 
 let apiKeyOMDb = 75468291;
-let apiKeyIMDb = 'k_7yh97abi';
+let apiKeyIMDb = 'k_muf4olu9';
 
 function App() {
   const [movie, setMovie] = useState({});

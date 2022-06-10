@@ -99,7 +99,7 @@ function Movie(props) {
 
       </div>
       <div className="plot">
-          <p>{Plot}</p>
+          <p>{Plot !== 'N/A' ? Plot : ''}</p>
       </div>
     </div>
   );
