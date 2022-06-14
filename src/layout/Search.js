@@ -24,6 +24,14 @@ function Search({
       setFilterActive(false);
     }
   };
+  let filterButton;
+  if( show !== 'movie' && 
+      show !== 'Top 250 Movies' && 
+      show !== 'Most Popular Movies' &&
+      show !== 'Most Popular TVs' &&
+      show !== 'New Movies') {
+    filterButton = <img src={filterImg} alt="fl"></img>
+  }
 
   return (
     <div className="search">
@@ -33,7 +41,7 @@ function Search({
           setFilterActive(!filterActive);
         }}
       >
-        <img src={filterImg} alt="fl"></img>
+        {filterButton}
       </button>
       <div className="form">
         <input

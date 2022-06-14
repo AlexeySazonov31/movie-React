@@ -5,9 +5,8 @@ import Movie from "./layout/Movie";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-
-let apiKeyOMDb = 75468291;
-let apiKeyIMDb = 'k_muf4olu9';
+const API_KEY_OMDb = 75468291;
+const API_KEY_IMDb = 'k_muf4olu9';
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -17,7 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://imdb-api.com/en/API/Top250Movies/${apiKeyIMDb}`)
+    fetch(`https://imdb-api.com/en/API/Top250Movies/${API_KEY_IMDb}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -28,7 +27,7 @@ function App() {
 
   const handleSelectionFilms = (url) => {
     setLoading(true);
-    fetch( String(url + apiKeyIMDb) )
+    fetch( String(url + API_KEY_IMDb) )
       .then( res => res.json() )
       .then( data => {
         console.log(data);
@@ -46,7 +45,7 @@ function App() {
 
     search = encodeURIComponent(search);
 
-    let url = `http://www.omdbapi.com/?apikey=${apiKeyOMDb}&s=${search}`;
+    let url = `http://www.omdbapi.com/?apikey=${API_KEY_OMDb}&s=${search}`;
 
     if (type !== "all") {
       url = url + "&type=" + type;
@@ -65,7 +64,7 @@ function App() {
     setLoading(true);
     setPastShow(show);
     setShow("movie");
-    fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&i=${id}&plot=full`)
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY_OMDb}&i=${id}&plot=full`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

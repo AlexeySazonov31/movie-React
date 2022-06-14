@@ -274,20 +274,20 @@ code {
     }
 
     .form:hover {
-      background: #0a090a;
-      transition: background 0.2s;
+      background-color: #0a090a;
+      transition: background-color 0.2s;
     }
 
     .form {
       position: relative;
-      width: 75%;
+      width: 80%;
       margin: 0 auto;
-      background: #19181A;
+      background-color: #19181A;
       border: 1px solid white;
       border-radius: 4px;
       padding: 0 7px;
       margin-left: 0;
-      transition: background 0.2s;
+      transition: background-color 0.2s;
 
 
       input,
