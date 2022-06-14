@@ -43,64 +43,73 @@ function Movie(props) {
   });
 
   let ratings;
-  if ( Ratings.length ){
-    ratings = Ratings.map( (note, item) => {
-      return <tr key={item}>
+  if (Ratings.length) {
+    ratings = Ratings.map((note, item) => {
+      return (
+        <tr key={item}>
           <td className="leftTb">{note.Source}: </td>
           <td className="rightTb">{note.Value}</td>
-      </tr>
-    })
+        </tr>
+      );
+    });
   }
   let ratingIMDB;
-  if ( imdbRating !== 'N/A' && imdbVotes !== 'N/A' && imdbRating && imdbVotes ){
-    ratingIMDB = <tr>
-      <td className="leftTb">Rating-imdb: </td>
-      <td className="rightTb">{imdbRating} ({imdbVotes} v)</td>
-    </tr>
+  if (imdbRating !== "N/A" && imdbVotes !== "N/A" && imdbRating && imdbVotes) {
+    ratingIMDB = (
+      <tr>
+        <td className="leftTb">Rating-imdb: </td>
+        <td className="rightTb">
+          {imdbRating} ({imdbVotes} v)
+        </td>
+      </tr>
+    );
   }
 
   return (
     <div className="movie" style={bI}>
-
       <div className="brightness">
+        <div>
+          {Poster !== "N/A" ? (
+            <img src={normImageUrl(Poster, 600)} alt="" />
+          ) : (
+            <img
+              src={`https://via.placeholder.com/300x430.png?text=${
+                Title ? Title : imdbID
+              }`}
+              alt=""
+            />
+          )}
+          <h3>{Title}</h3>
+        </div>
 
-      <div>
-        {Poster !== "N/A" ? (
-          <img src={normImageUrl(Poster, 600)} alt="" />
-        ) : (
-          <img
-            src={`https://via.placeholder.com/300x430.png?text=${
-              Title ? Title : imdbID
-            }`}
-            alt=""
-          />
-        )}
-        <h3>{Title}</h3>
-      </div>
-      
-      <table>
-        <thead>
-          <tr>
-            <th colSpan="2">Description:</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
-          {ratings} 
-          {ratingIMDB}
-          {props.totalSeasons ? (
+        <table>
+          <thead>
             <tr>
-              <td className="leftTb">Total Seasons: </td>
-              <td className="rightTb">{props.totalSeasons}</td>
+              <th colSpan="2">Description:</th>
             </tr>
-          ) : (<></>)} 
-        </tbody>
-      </table>
-
+          </thead>
+          <tbody>
+            {rows}
+            {ratings}
+            {ratingIMDB}
+            {props.totalSeasons ? (
+              <tr>
+                <td className="leftTb">Total Seasons: </td>
+                <td className="rightTb">{props.totalSeasons}</td>
+              </tr>
+            ) : (
+              <></>
+            )}
+          </tbody>
+        </table>
       </div>
-      <div className="plot">
-          <p>{Plot !== 'N/A' ? Plot : ''}</p>
-      </div>
+      {Plot !== "N/A" ? (
+        <div className="plot">
+          <p>{Plot}</p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
