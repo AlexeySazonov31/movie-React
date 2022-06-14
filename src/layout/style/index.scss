@@ -280,7 +280,7 @@ code {
 
     .form {
       position: relative;
-      width: 80%;
+      width: 100%;
       margin: 0 auto;
       background-color: #19181A;
       border: 1px solid white;
@@ -318,8 +318,13 @@ code {
     /* --------- */
     .search {
       display: flex;
+      margin-right: 8%;
+     /* margin-left: 20%;*/
 
       .buttonFilter {
+       /* left: 28%;
+        position: absolute;
+        z-index: 1;*/
         background-color: rgba(0, 0, 0, 0);
         color: white;
         border: none;

@@ -10,7 +10,12 @@ function Movie(props) {
     imdbVotes,
   } = props;
 
-  const bI = { backgroundImage: `url(${normImageUrl(Poster, 200)})` };
+  let bI;
+  if( Poster !== "N/A" ){
+    bI = { backgroundImage: `url(${normImageUrl(Poster, 200)})` };
+  } else {
+    bI = { backgroundImage: `url(https://via.placeholder.com/300x430.png?text=${Title}})` };
+  }
 
   const elemRows = [
     "Year",
