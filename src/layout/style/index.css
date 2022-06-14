@@ -387,18 +387,14 @@ code {
 .header ul li {
   font-size: 20px;
   text-align: center;
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
-  border-radius: 8px;
-  margin-top: 3%;
+  border-bottom: 1px solid #b6b6b6;
+  border-top: 1px solid #b6b6b6;
+  border-radius: 4px;
+  margin-top: 14px;
   padding: 10px;
   font-family: Courgette;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
-}
-
-.header ul li span {
-  color: #92922d;
 }
 
 .header ul .selected {
@@ -410,8 +406,8 @@ code {
 .header .labelDiv {
   width: 97%;
   padding: 4px;
-  border-bottom: 1px solid #888888;
-  border-radius: 8px;
+  border-bottom: 1px solid #b6b6b6;
+  border-radius: 4px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -429,17 +425,36 @@ code {
   .header .headerGrid .search {
     width: 85%;
   }
+  .header ul {
+    width: 65%;
+    margin: 0 auto;
+  }
+  .header .labelDiv {
+    width: 63%;
+  }
 }
 
 @media (min-width: 900px) {
   .header .headerGrid .search {
     width: 70%;
   }
+  .header ul {
+    width: 55%;
+  }
+  .header .labelDiv {
+    width: 54%;
+  }
 }
 
 @media (min-width: 1200px) {
   .header .headerGrid .search {
     width: 60%;
+  }
+  .header ul {
+    width: 50%;
+  }
+  .header .labelDiv {
+    width: 49%;
   }
 }
 
@@ -598,6 +613,79 @@ main .movie .plot p {
   font-size: 18px;
 }
 
+/* adaptive movie info */
+@media (min-width: 450px) {
+  main .movie .brightness img {
+    width: 50%;
+  }
+  main .movie .brightness h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  main .movie .plot {
+    padding: 40px 100px;
+  }
+}
+
+@media (min-width: 600px) {
+  main .movie {
+    background-size: 100vw;
+  }
+  main .movie .brightness img {
+    width: 40%;
+  }
+  main .movie .brightness h3 {
+    margin-right: 10%;
+  }
+  main .movie .plot {
+    padding: 40px 120px;
+  }
+}
+
+@media (min-width: 700px) {
+  main .movie .brightness {
+    padding: 40px 15%;
+  }
+  main .movie .brightness img {
+    width: 35%;
+  }
+  main .movie .brightness table {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+  main .movie .plot {
+    padding: 40px 140px;
+  }
+}
+
+@media (min-width: 900px) {
+  main .movie .brightness {
+    padding: 50px 20%;
+  }
+  main .movie .plot {
+    padding: 40px 180px;
+  }
+}
+
+@media (min-width: 1100px) {
+  main .movie .brightness {
+    padding: 50px 25%;
+  }
+  main .movie .plot {
+    padding: 40px 25%;
+  }
+}
+
+@media (min-width: 1400px) {
+  main .movie .brightness {
+    padding: 50px 30%;
+  }
+  main .movie .plot {
+    padding: 40px 30%;
+  }
+}
+
+/* adaptive movies cards  */
 @media (min-width: 500px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 70%;
