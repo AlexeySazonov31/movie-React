@@ -73,7 +73,7 @@ function Movie(props) {
   return (
     <div className="movie" style={bI}>
       <div className="brightness">
-        <div>
+        <div className="PosterMovieGrid">
           {Poster !== "N/A" ? (
             <img src={normImageUrl(Poster, 600)} alt="" />
           ) : (
@@ -84,6 +84,9 @@ function Movie(props) {
               alt=""
             />
           )}
+        </div>
+
+        <div className="TitleMovieGrid">
           <h3>{Title}</h3>
         </div>
 

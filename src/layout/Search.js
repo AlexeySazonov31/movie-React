@@ -50,7 +50,7 @@ function Search({
           onChange={(event) => {
             setSearch(event.target.value);
           }}
-          placeholder="name movie"
+          placeholder="movie"
           onKeyUp={handleEnter}
         />
         <button

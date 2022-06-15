@@ -46,8 +46,6 @@ function Header(props) {
       </li>
     );
   });
-  //        <span>&#9734;</span> {note.name} <span>&#9734;</span>
-
 
   let ht;
   if (menuActive) {
@@ -76,7 +74,8 @@ function Header(props) {
       <div className="headerGrid">
         { props.show === 'movie' ? (
           <button className="backButton" onClick={() => {
-            props.setShow(props.pastShow)
+            props.setShow(props.pastShow);
+            setMenuActive(false);
           }}>
             <img src={leftImg}/>
           </button> 

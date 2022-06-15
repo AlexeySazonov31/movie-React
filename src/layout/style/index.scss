@@ -233,6 +233,8 @@ th {
 
 /*-----------------------------------------------------*/
 body {
+  overflow-y:scroll;
+  overflow-x:auto;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -283,7 +285,7 @@ code {
       width: 100%;
       margin: 0 auto;
       background-color: #19181A;
-      border: 1px solid white;
+      border: 1px solid rgb(206, 206, 206);
       border-radius: 4px;
       padding: 0 7px;
       margin-left: 0;
@@ -419,15 +421,17 @@ code {
         width: 85%;
       }
     }
+
     ul {
       width: 65%;
       margin: 0 auto;
     }
+
     .labelDiv {
       width: 63%;
     }
   }
-  
+
 }
 
 @media (min-width: 900px) {
@@ -437,9 +441,11 @@ code {
         width: 70%;
       }
     }
+
     ul {
       width: 55%;
     }
+
     .labelDiv {
       width: 54%;
     }
@@ -453,9 +459,11 @@ code {
         width: 60%;
       }
     }
+
     ul {
       width: 50%;
     }
+
     .labelDiv {
       width: 49%;
     }
@@ -547,29 +555,38 @@ main {
       background-color: rgba(0, 0, 0, 0.64);
       backdrop-filter: blur(10px);
       padding: 30px;
+      display: grid;
+      grid-template: 
+      "poster title"
+      "table table"
+      / 60% 40%;
 
-      img {
-        width: 45%;
-        border-radius: 7px;
-        float: left;
-        margin-left: 3%;
-        margin-right: 7%;
-        margin-bottom: 30px;
-        border: 2px solid black;
+      .PosterMovieGrid {
+        grid-area: poster;
+        img {
+          width: 80%;
+          border-radius: 7px;
+          float: left;
+          margin-left: 3%;
+          margin-right: 7%;
+          margin-bottom: 30px;
+          border: 2px solid black;
+        }
       }
 
-      h3 {
-        font-size: 22px;
-        text-align: left;
-        margin-bottom: 30px;
-      }
+      .TitleMovieGrid {
+        grid-area: title;
 
-      p {
-        margin: 0;
+        h3 {
+          font-size: 22px;
+          text-align: left;
+          margin-bottom: 30px;
+        }
       }
-
 
       table {
+        grid-area: table;
+
         clear: both;
         margin-bottom: 15px;
         font-weight: 400;
@@ -590,15 +607,23 @@ main {
         .leftTb {
           text-align: right;
           padding-right: 8px;
-          font-weight: 500;
         }
 
         .rightTb {
           padding-left: 8px;
           text-align: left;
+          font-weight: 700;
+
         }
 
       }
+
+      p {
+        margin: 0;
+      }
+
+
+
 
 
     }
@@ -624,9 +649,6 @@ main {
   main {
     .movie {
       .brightness {
-        img {
-          width: 50%;
-        }
 
         h3 {
           font-size: 22px;
@@ -649,9 +671,6 @@ main {
       background-size: 100vw;
 
       .brightness {
-        img {
-          width: 40%;
-        }
 
         h3 {
           margin-right: 10%;
@@ -673,10 +692,6 @@ main {
       .brightness {
         padding: 40px 15%;
 
-        img {
-          width: 35%;
-        }
-
         table {
           margin-left: 8%;
           margin-right: 8%;
@@ -697,7 +712,29 @@ main {
   main {
     .movie {
       .brightness {
-        padding: 50px 20%;
+        padding: 30px 10%;
+        grid-template: 
+        "poster table" auto
+        "title table"
+        / 40% 55%;
+        justify-content: space-between;
+        row-gap: 20px;
+
+        .PosterMovieGrid {
+
+          img {
+            width: 100%;
+            margin: 0;
+          }
+        }
+
+        .TitleMovieGrid {
+          align-self: start;
+          h3 {
+            padding-left: 18%;
+          }
+        }
+
       }
 
       .plot {
@@ -713,7 +750,7 @@ main {
   main {
     .movie {
       .brightness {
-        padding: 50px 25%;
+        padding: 30px 20%;
       }
 
       .plot {
@@ -728,10 +765,6 @@ main {
 @media (min-width: 1400px) {
   main {
     .movie {
-      .brightness {
-        padding: 50px 30%;
-      }
-
       .plot {
         padding: 40px 30%;
       }
@@ -892,10 +925,11 @@ footer {
   background-position: center;
   background-size: 100%;
   display: flex;
-  height: 68vh;
+  height: 85vh;
 }
 
 .loader {
+  position: relative;
   margin: auto;
   border: 5px solid #00000000;
   border-top: 3px solid rgb(255, 255, 255);

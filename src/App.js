@@ -34,6 +34,7 @@ function App() {
         setMovies(data.items.length ? data.items : []);
         setLoading(false);
       })
+
   }
 
   const handleEnterParent = (search, type) => {
@@ -72,6 +73,7 @@ function App() {
         setLoading(false);
       });
   };
+
   return (
     <>
       <Header
