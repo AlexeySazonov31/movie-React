@@ -478,18 +478,25 @@ main {
     background-size: 100%;
     padding: 15px 0;
 
-    .buttonShow {
+    .buttonFlex {
       display: flex;
-      margin: auto;
-      background: none;
-      color: #d4d4d4;
-      font-size: 19px;
-      border: none;
-      padding: 5px 15px;
-      font-family: Courgette;
-      font-weight: 100;
-      text-decoration: underline;
+      justify-content: center;
+      .buttonShow {
+        display: inline-block;
+        background: none;
+        color: #d4d4d4;
+        font-size: 19px;
+        border: none;
+        padding: 5px 15px;
+        font-family: Courgette;
+        font-weight: 100;
+        text-decoration: underline;
+      }
+      .leftBorder {
+        border-left: 2px solid #d4d4d4;
+      }
     }
+
 
     .moviesContainer {
       width: 100%;

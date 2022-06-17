@@ -468,11 +468,17 @@ main .movies {
   padding: 15px 0;
 }
 
-main .movies .buttonShow {
+main .movies .buttonFlex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .movies .buttonFlex .buttonShow {
+  display: inline-block;
   background: none;
   color: #d4d4d4;
   font-size: 19px;
@@ -481,6 +487,10 @@ main .movies .buttonShow {
   font-family: Courgette;
   font-weight: 100;
   text-decoration: underline;
+}
+
+main .movies .buttonFlex .leftBorder {
+  border-left: 2px solid #d4d4d4;
 }
 
 main .movies .moviesContainer {
