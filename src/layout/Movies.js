@@ -1,6 +1,6 @@
 import Card from "./Card";
 import { useState } from "react";
-import $ from 'jquery';
+import $ from "jquery";
 
 function Movies(props) {
   const [amountCard, setAmountCard] = useState(15);
@@ -35,10 +35,10 @@ function Movies(props) {
   }
 
   let classNameTopButton;
-  if ( amountCard >= props.movies.length ) {
-    classNameTopButton = 'buttonShow go_to_top';
+  if (amountCard >= props.movies.length) {
+    classNameTopButton = "buttonShow go_to_top";
   } else {
-    classNameTopButton = 'buttonShow go_to_top leftBorder';
+    classNameTopButton = "buttonShow go_to_top leftBorder";
   }
 
   return (
@@ -72,15 +72,17 @@ function Movies(props) {
             show more
           </button>
         )}
-        <button 
+        <button
           className={classNameTopButton}
-          onClick={ () => {
-            $(document).on("click", ".go_to_top", function(e) {
+          onClick={() => {
+            $(document).on("click", ".go_to_top", function (e) {
               e.preventDefault();
-              $('body, html').animate({scrollTop: 0}, 800);
-          });
-          } }
-          >go to top</button>
+              $("body, html").animate({ scrollTop: 0 }, 800);
+            });
+          }}
+        >
+          go to top
+        </button>
       </div>
     </div>
   );
