@@ -44,10 +44,10 @@ function App() {
 
     search = encodeURIComponent(search);
 
-    let url = `http://www.omdbapi.com/?apikey=${API_KEY_OMDb}&s=${search}`;
+    let url = `/search/${search}`;
 
     if (type !== "all") {
-      url = url + "&type=" + type;
+      url = url + "/" + type;
     }
 
     fetch(url)
@@ -63,7 +63,7 @@ function App() {
     setLoading(true);
     setPastShow(show);
     setShow("movie");
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY_OMDb}&i=${id}&plot=full`)
+    fetch(`/getMoreInfo/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
