@@ -6,19 +6,19 @@ import leftImg from './img/left.png';
 const menu = [
   {
     name: "Top 250 Movies",
-    url: "https://imdb-api.com/en/API/Top250Movies/",
+    url: "/selectionData/Top250Movies",
   },
   {
     name: "Most Popular Movies",
-    url: "https://imdb-api.com/en/API/MostPopularMovies/",
+    url: "/selectionData/MostPopularMovies",
   },
   {
     name: "Most Popular TVs",
-    url: "https://imdb-api.com/en/API/MostPopularTVs/",
+    url: "/selectionData/MostPopularTVs",
   },
   {
     name: "New Movies",
-    url: "https://imdb-api.com/en/API/ComingSoon/",
+    url: "/selectionData/ComingSoon",
   },
 ];
 
