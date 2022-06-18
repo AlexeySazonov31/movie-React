@@ -5,7 +5,7 @@ import fetch from "node-fetch";
 import path from "path";
 import { fileURLToPath } from "url";
 
-let PORT = 3000;
+let PORT = 8080;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,19 +16,27 @@ const API_KEY_IMDb = process.env.API_KEY_IMDb;
 const dataSelections = [
   {
     name: 'Top250Movies',
-    data: ''
+    data: []
   },
   {
     name: 'MostPopularMovies',
-    data: ''
+    data: []
   },
   {
     name: 'MostPopularTVs',
-    data: ''
+    data: []
   },
   {
     name: 'ComingSoon',
-    data: ''
+    data: []
+  },
+  {
+    name: "BoxOffice",
+    data: []
+  },
+  {
+    name: "InTheaters",
+    data: []
   }
 ]
 
@@ -45,6 +53,7 @@ app.use(express.static("build"));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "build/index.html"));
+  console.log('sent html page')
 });
 
 
@@ -68,7 +77,11 @@ app.use('/search/:search/:type?', (req,res) => {
     .then((data) => {
       res.json(data)
       console.log('search by request: ' + req.params.search + ', type: ' + req.params.type);
-    });
+    })
+    .catch(error => {
+      console.error(error);
+      res.json(error)
+    })
 })
 
 app.use('/getMoreInfo/:id', (req,res) => {
@@ -77,7 +90,11 @@ app.use('/getMoreInfo/:id', (req,res) => {
   .then((data) => {
     res.json(data)
     console.log('sent More info by id: ' + req.params.id);
-  });
+  })
+  .catch(error => {
+    console.error(error);
+    res.json(error)
+  })
 })
 
 
@@ -96,6 +113,10 @@ function getSelections() {
     .then((data) => {
       selection.data = data;
       console.log(selection.name + ": (+)");
-    });
+    })
+    .catch( error => {
+      selection.data = '';
+      console.error(error);
+    })
   }
 }

@@ -19,9 +19,18 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+        if( data === '' ){
+          setMovies([]);
+        } else {
+          setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+        }
         setLoading(false);
-      });
+      })
+      .catch( err => {
+        setMovies('Error in React');
+        console.error(err);
+        setLoading(false);
+      } )
   }, []);
 
   const handleSelectionFilms = (url) => {
@@ -30,9 +39,18 @@ function App() {
       .then( res => res.json() )
       .then( data => {
         console.log(data);
-        setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+        if( data === '' ){
+          setMovies([]);
+        } else {
+          setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+        }
         setLoading(false);
       })
+      .catch( err => {
+        setMovies('Error in React');
+        console.error(err);
+        setLoading(false);
+      } )
   }
 
   const handleEnterParent = (search, type) => {
@@ -56,7 +74,12 @@ function App() {
         console.log(data);
         setMovies(data.Search ? data.Search : ( data.Error ? data.Error : [] ));
         setLoading(false);
-      });
+      })
+      .catch( err => {
+        setMovies('Error in React');
+        console.error(err);
+        setLoading(false);
+      } )
   };
 
   const handleReadMore = (id) => {
@@ -69,11 +92,15 @@ function App() {
         console.log(data);
         setMovie(data.Title ? data : ( data.Error ? data.Error : '' ));
         setLoading(false);
-      });
+      })
+      .catch( err => {
+        setMovie('Error in React');
+        console.error(err);
+        setLoading(false);
+      } )
   };
 
 
-  console.log(movie)
   return (
     <>
       <Header
