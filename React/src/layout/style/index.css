@@ -258,13 +258,14 @@ code {
   z-index: 1;
   background-color: #19181A;
   color: white;
-  padding: 14px 10px;
+  padding: 0px 10px;
   -webkit-transition: height 0.5s ease;
   transition: height 0.5s ease;
   overflow: hidden;
 }
 
 .header .headerGrid {
+  min-height: 55px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 23% 1fr 15%;
@@ -310,7 +311,7 @@ code {
 
 .header .headerGrid .form input {
   width: 81%;
-  height: 35px;
+  height: 33px;
 }
 
 .header .headerGrid .form button {
@@ -462,6 +463,7 @@ code {
 
 /*----main----------------------------------------------*/
 main .movies {
+  min-height: 80vh;
   background-image: url("../img/backMovies.jpg");
   background-position: center;
   background-size: 100%;
@@ -558,6 +560,7 @@ main .movie {
 }
 
 main .movie .brightness {
+  min-height: 50vh;
   background-color: rgba(0, 0, 0, 0.64);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);

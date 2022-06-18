@@ -20,6 +20,14 @@ const menu = [
     name: "New Movies",
     url: "/selectionData/ComingSoon",
   },
+  {
+    name: "In Theaters",
+    url: "/selectionData/InTheaters",
+  },
+  {
+    name: "Box Office - new movies",
+    url: "/selectionData/BoxOffice",
+  }
 ];
 
 function Header(props) {
@@ -50,15 +58,15 @@ function Header(props) {
   let ht;
   if (menuActive) {
     if(filterActive){
-      ht = { height: "340px" };
+      ht = { height: "490px" };
     } else {
-      ht = { height: "290px" };
+      ht = { height: "440px" };
     }
   } else {
     if ( filterActive ){
-      ht = { height: "95px" };
+      ht = { height: "120px" };
     } else {
-      ht = { height: "42px" };
+      ht = { height: "55px" };
     }
   }
 
@@ -77,7 +85,7 @@ function Header(props) {
             props.setShow(props.pastShow);
             setMenuActive(false);
           }}>
-            <img src={leftImg}/>
+            <img src={leftImg} alt=""/>
           </button> 
         ) : (
           <h2>MvS</h2>

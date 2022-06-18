@@ -5,8 +5,6 @@ import Movie from "./layout/Movie";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-const API_KEY_OMDb = 75468291;
-
 function App() {
   const [movie, setMovie] = useState({});
   const [show, setShow] = useState("Top 250 Movies");

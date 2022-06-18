@@ -260,11 +260,12 @@ code {
   z-index: 1;
   background-color: #19181A;
   color: white;
-  padding: 14px 10px;
+  padding: 0px 10px;
   transition: height 0.5s ease;
   overflow: hidden;
 
   .headerGrid {
+    min-height: 55px;
     display: grid;
     grid-template-columns: 23% 1fr 15%;
     justify-items: center;
@@ -301,7 +302,7 @@ code {
 
       input {
         width: 81%;
-        height: 35px;
+        height: 33px;
       }
 
       button {
@@ -473,6 +474,7 @@ code {
 /*----main----------------------------------------------*/
 main {
   .movies {
+    min-height: 80vh;
     background-image: url('../img/backMovies.jpg');
     background-position: center;
     background-size: 100%;
@@ -558,7 +560,9 @@ main {
     background-size: 100vh;
     color: white;
 
+
     .brightness {
+      min-height: 50vh;
       background-color: rgba(0, 0, 0, 0.64);
       backdrop-filter: blur(10px);
       padding: 30px;
