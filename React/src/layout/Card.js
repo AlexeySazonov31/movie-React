@@ -61,17 +61,3 @@ function Card(props) {
   );
 }
 export default Card;
-
-/*
-    if( /SX[0-9][0-9][0-9]/.test(urlImage) ){
-      urlImage.replace(/SX[0-9][0-9][0-9]/, 'SX700');
-    } else if ( /[A-Z]{2}[0-9]{3}_[A-Z]{2}[0-9],[0-9],[0-9]{3},[0-9]{3}_[A-Z]{2}_\.jpg/.test(urlImage) ){
-      urlImage.replace( /[A-Z]{2}[0-9]{3}_[A-Z]{2}[0-9],[0-9],[0-9]{3},[0-9]{3}_[A-Z]{2}_\.jpg/, 'SX700.jpg');
-    } else if ( /imdb-api\.com/.test(urlImage) ){
-      let res = urlImage.replace( /https:\/\/imdb-api\.com\/images\/original\//, '' );
-      res = res.replace( /\..+\.jpg/, '' );
-      res = 'https://m.media-amazon.com/images/M/' + res + '._V1_SX600.jpg';
-      return res;
-    }
-    return urlImage;
-    */

@@ -16,7 +16,6 @@ function App() {
     fetch(`/selectionData/Top250Movies`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data === "") {
           setMovies([]);
         } else {
@@ -42,7 +41,6 @@ function App() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data === "") {
           setMovies([]);
         } else {
@@ -81,7 +79,6 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMovies(data.Search ? data.Search : data.Error ? data.Error : []);
         setLoading(false);
       })
@@ -99,7 +96,6 @@ function App() {
     fetch(`/getMoreInfo/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMovie(data.Title ? data : data.Error ? data.Error : "");
         setLoading(false);
       })
