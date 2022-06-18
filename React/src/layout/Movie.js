@@ -1,4 +1,18 @@
 function Movie(props) {
+
+  if( typeof props.movie === 'string') {
+    if( props.movie === '' ){
+      return <div className="error">
+      <span>Error:</span><br/>
+      Check the server
+    </div>
+    } else {
+      return <div className="error">
+      {props.movie}
+    </div>
+    }
+  }
+
   const {
     Plot,
     Poster,
@@ -8,7 +22,7 @@ function Movie(props) {
     Ratings,
     imdbRating,
     imdbVotes,
-  } = props;
+  } = props.movie;
 
   let bI;
   if( Poster !== "N/A" ){
@@ -35,9 +49,9 @@ function Movie(props) {
 
   const rows = elemRows.map((note, item) => {
     let col1, col2;
-    if (props[note] !== "N/A" && props[note]) {
+    if (props.movie[note] !== "N/A" && props.movie[note]) {
       col1 = <td className="leftTb">{note}: </td>;
-      col2 = <td className="rightTb">{props[note]}</td>;
+      col2 = <td className="rightTb">{props.movie[note]}</td>;
     }
     return (
       <tr key={item}>
@@ -100,10 +114,10 @@ function Movie(props) {
             {rows}
             {ratings}
             {ratingIMDB}
-            {props.totalSeasons ? (
+            {props.movie.totalSeasons ? (
               <tr>
                 <td className="leftTb">Total Seasons: </td>
-                <td className="rightTb">{props.totalSeasons}</td>
+                <td className="rightTb">{props.movie.totalSeasons}</td>
               </tr>
             ) : (
               <></>

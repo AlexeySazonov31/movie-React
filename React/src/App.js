@@ -12,12 +12,14 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+
   useEffect(() => {
     fetch(`/selectionData/Top250Movies`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setMovies(data.items.length ? data.items : []);
+        setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
         setLoading(false);
       });
   }, []);
@@ -28,7 +30,7 @@ function App() {
       .then( res => res.json() )
       .then( data => {
         console.log(data);
-        setMovies(data.items.length ? data.items : []);
+        setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
         setLoading(false);
       })
   }
@@ -52,7 +54,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setMovies(data.Search ? data.Search : []);
+        setMovies(data.Search ? data.Search : ( data.Error ? data.Error : [] ));
         setLoading(false);
       });
   };
@@ -65,11 +67,13 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setMovie(data.Title ? data : {});
+        setMovie(data.Title ? data : ( data.Error ? data.Error : '' ));
         setLoading(false);
       });
   };
 
+
+  console.log(movie)
   return (
     <>
       <Header
@@ -88,7 +92,7 @@ function App() {
             <div className="loader"></div>
           </div>
         ) : show === "movie" ? (
-          <Movie {...movie} />
+          <Movie movie={movie} />
         ) : (
           <Movies
             movies={movies}

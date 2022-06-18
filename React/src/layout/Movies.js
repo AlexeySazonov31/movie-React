@@ -7,6 +7,17 @@ function Movies(props) {
 
   if (props.loading === true) setAmountCard(15);
 
+  if( typeof props.movies === 'string') {
+    return <div className="error">
+    {props.movies}
+  </div>
+  } else if ( !props.movies.length ){
+    return <div className="error">
+    <span>Error:</span><br/>
+    Check the server
+  </div>
+  }
+
   let elem;
   if (props.movies.length) {
     let pastID;
@@ -24,14 +35,6 @@ function Movies(props) {
         }
       }
     });
-  } else {
-    elem = (
-      <div className="error">
-        <span>Error:</span>
-        <br />
-        Nothing found
-      </div>
-    );
   }
 
   let classNameTopButton;

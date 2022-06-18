@@ -463,7 +463,6 @@ code {
 
 /*----main----------------------------------------------*/
 main .movies {
-  min-height: 80vh;
   background-image: url("../img/backMovies.jpg");
   background-position: center;
   background-size: 100%;
@@ -560,7 +559,6 @@ main .movie {
 }
 
 main .movie .brightness {
-  min-height: 50vh;
   background-color: rgba(0, 0, 0, 0.64);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -678,6 +676,7 @@ main .movie .plot p {
 
 @media (min-width: 900px) {
   main .movie .brightness {
+    min-height: 70vh;
     padding: 30px 10%;
     grid-template: "poster table" auto "title table" / 40% 55%;
     -webkit-box-pack: justify;
@@ -730,6 +729,9 @@ main .movie .plot p {
 }
 
 @media (min-width: 600px) {
+  main .movies {
+    min-height: 80vh;
+  }
   main .movies .moviesContainer {
     -ms-grid-columns: 44% 44%;
         grid-template-columns: 44% 44%;
@@ -867,8 +869,13 @@ footer hr {
   }
 }
 
-/*---------notFoundMovie------------------------------*/
+/*---------Error------------------------------*/
 .error {
+  padding-top: 10%;
+  background-image: url("../img/backMovies.jpg");
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
   height: 100vh;
   text-align: center;
   font-size: 40px;

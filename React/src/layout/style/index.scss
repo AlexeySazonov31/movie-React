@@ -474,7 +474,6 @@ code {
 /*----main----------------------------------------------*/
 main {
   .movies {
-    min-height: 80vh;
     background-image: url('../img/backMovies.jpg');
     background-position: center;
     background-size: 100%;
@@ -562,7 +561,6 @@ main {
 
 
     .brightness {
-      min-height: 50vh;
       background-color: rgba(0, 0, 0, 0.64);
       backdrop-filter: blur(10px);
       padding: 30px;
@@ -723,6 +721,7 @@ main {
   main {
     .movie {
       .brightness {
+        min-height: 70vh;
         padding: 30px 10%;
         grid-template: 
         "poster table" auto
@@ -806,6 +805,8 @@ main {
 @media (min-width: 600px) {
   main {
     .movies {
+      min-height: 80vh;
+
       .moviesContainer {
         grid-template-columns: 44% 44%;
       }
@@ -976,9 +977,15 @@ footer {
 }
 
 
-/*---------notFoundMovie------------------------------*/
+/*---------Error------------------------------*/
 
 .error {
+  padding-top: 10%;
+  background-image: url('../img/backMovies.jpg');
+  background-position: center;
+  background-size: 100%;
+
+  width: 100%;
   height: 100vh;
   text-align: center;
   font-size: 40px;
