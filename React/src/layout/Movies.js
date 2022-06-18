@@ -7,15 +7,16 @@ function Movies(props) {
 
   if (props.loading === true) setAmountCard(15);
 
-  if( typeof props.movies === 'string') {
-    return <div className="error">
-    {props.movies}
-  </div>
-  } else if ( !props.movies.length ){
-    return <div className="error">
-    <span>Error:</span><br/>
-    Check the server
-  </div>
+  if (typeof props.movies === "string") {
+    return <div className="error">{props.movies}</div>;
+  } else if (!props.movies.length) {
+    return (
+      <div className="error">
+        <span>Error:</span>
+        <br />
+        Check the server
+      </div>
+    );
   }
 
   let elem;

@@ -26,7 +26,11 @@ function Card(props) {
       className="cardMovie"
       onClick={() => props.handleReadMore(imdbID)}
     >
-      {props.movie.rank ? (<div className="rank">{props.movie.rank}</div>) : (<></>)}
+      {props.movie.rank ? (
+        <div className="rank">{props.movie.rank}</div>
+      ) : (
+        <></>
+      )}
       {/N\/A/.test(Poster) ? (
         <img
           src={`https://via.placeholder.com/300x430.png?text=${Title}`}
@@ -38,12 +42,19 @@ function Card(props) {
           alt=""
         />
       ) : (
-        <img src={normImageUrl(Poster)} alt={Title + '(image)'} />
+        <img src={normImageUrl(Poster)} alt={Title + "(image)"} />
       )}
       <h3>{Title}</h3>
       <p>
         <span>
-          {Year}{Type ? (', (' + Type + ')') : props.movie.releaseState ? (', (' + props.movie.releaseState + ')') : (<></>)}
+          {Year}
+          {Type ? (
+            ", (" + Type + ")"
+          ) : props.movie.releaseState ? (
+            ", (" + props.movie.releaseState + ")"
+          ) : (
+            <></>
+          )}
         </span>
       </p>
     </div>

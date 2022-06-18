@@ -1,15 +1,15 @@
 function Movie(props) {
-
-  if( typeof props.movie === 'string') {
-    if( props.movie === '' ){
-      return <div className="error">
-      <span>Error:</span><br/>
-      Check the server
-    </div>
+  if (typeof props.movie === "string") {
+    if (props.movie === "") {
+      return (
+        <div className="error">
+          <span>Error:</span>
+          <br />
+          Check the server
+        </div>
+      );
     } else {
-      return <div className="error">
-      {props.movie}
-    </div>
+      return <div className="error">{props.movie}</div>;
     }
   }
 
@@ -25,10 +25,12 @@ function Movie(props) {
   } = props.movie;
 
   let bI;
-  if( Poster !== "N/A" ){
+  if (Poster !== "N/A") {
     bI = { backgroundImage: `url(${normImageUrl(Poster, 200)})` };
   } else {
-    bI = { backgroundImage: `url(https://via.placeholder.com/300x430.png?text=${Title}})` };
+    bI = {
+      backgroundImage: `url(https://via.placeholder.com/300x430.png?text=${Title}})`,
+    };
   }
 
   const elemRows = [

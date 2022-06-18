@@ -8,50 +8,60 @@ import Footer from "./layout/Footer";
 function App() {
   const [movie, setMovie] = useState({});
   const [show, setShow] = useState("Top 250 Movies");
-  const [pastShow, setPastShow] = useState('Top 250 Movies');
+  const [pastShow, setPastShow] = useState("Top 250 Movies");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-
-
 
   useEffect(() => {
     fetch(`/selectionData/Top250Movies`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if( data === '' ){
+        if (data === "") {
           setMovies([]);
         } else {
-          setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+          setMovies(
+            data.items.length
+              ? data.items
+              : data.errorMessage
+              ? data.errorMessage
+              : []
+          );
         }
         setLoading(false);
       })
-      .catch( err => {
-        setMovies('Error in React');
+      .catch((err) => {
+        setMovies("Error in React");
         console.error(err);
         setLoading(false);
-      } )
+      });
   }, []);
 
   const handleSelectionFilms = (url) => {
     setLoading(true);
     fetch(url)
-      .then( res => res.json() )
-      .then( data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-        if( data === '' ){
+        if (data === "") {
           setMovies([]);
         } else {
-          setMovies(data.items.length ? data.items : ( data.errorMessage ? data.errorMessage : [] ));
+          setMovies(
+            data.items.length
+              ? data.items
+              : data.errorMessage
+              ? data.errorMessage
+              : []
+          );
         }
         setLoading(false);
       })
-      .catch( err => {
-        setMovies('Error in React');
+      .catch((err) => {
+        setMovies("Error in React");
         console.error(err);
         setLoading(false);
-      } )
-  }
+      });
+  };
 
   const handleEnterParent = (search, type) => {
     if (search.trim() === "") return;
@@ -72,14 +82,14 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setMovies(data.Search ? data.Search : ( data.Error ? data.Error : [] ));
+        setMovies(data.Search ? data.Search : data.Error ? data.Error : []);
         setLoading(false);
       })
-      .catch( err => {
-        setMovies('Error in React');
+      .catch((err) => {
+        setMovies("Error in React");
         console.error(err);
         setLoading(false);
-      } )
+      });
   };
 
   const handleReadMore = (id) => {
@@ -90,16 +100,15 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setMovie(data.Title ? data : ( data.Error ? data.Error : '' ));
+        setMovie(data.Title ? data : data.Error ? data.Error : "");
         setLoading(false);
       })
-      .catch( err => {
-        setMovie('Error in React');
+      .catch((err) => {
+        setMovie("Error in React");
         console.error(err);
         setLoading(false);
-      } )
+      });
   };
-
 
   return (
     <>
@@ -110,7 +119,6 @@ function App() {
         handleSelectionFilms={handleSelectionFilms}
         pastShow={pastShow}
         setPastShow={setPastShow}
-
       />
 
       <main>
