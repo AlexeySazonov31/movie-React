@@ -363,6 +363,8 @@ code {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
@@ -395,6 +397,12 @@ code {
       justify-self: end;
   font-size: 17px;
   font-weight: 500;
+}
+
+.header .headerGrid .search .realTimeResults li:hover {
+  background-color: #121113d5;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header .headerGrid h2 {
@@ -448,14 +456,20 @@ code {
   margin-top: 14px;
   padding: 10px;
   font-family: Courgette;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+.header ul li:hover {
+  background-color: #322f33;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header ul .selected {
   background-color: #322f33;
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header .labelDiv {

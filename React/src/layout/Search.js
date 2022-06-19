@@ -15,6 +15,8 @@ function Search({
   setPastShow,
   menuActive,
   setMenuActive,
+  handleReadMore,
+  setMovies  
 }) {
   const handleEnter = (event) => {
     if (event.key === "Enter") {
@@ -23,6 +25,7 @@ function Search({
       setShow("search");
       setMenuActive(false);
       setFilterActive(false);
+      setRealTimeRes([])
     }
   };
   let filterButton;
@@ -41,24 +44,28 @@ function Search({
 
   useEffect(() => {
     if (typeof search === "string" && search.length >= 3 ) {
-      console.log(search);
       fetch(`/search/${search}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setRealTimeRes(data.Search ? data.Search : []);
         });
     } else {
       setRealTimeRes([]);
     }
+
   }, [search]);
 
   let realTimeResults;
-  if (realTimeRes.length  && !menuActive) {
+  if (realTimeRes.length  && !menuActive && !filterActive) {
     realTimeResults = realTimeRes.map((movie, item) => {
       if (item <= 4) {
         return (
-          <li key={movie.imdbID}>
+          <li key={movie.imdbID} onClick={() => {
+            setPastShow('search')
+            setMovies(realTimeRes)
+            handleReadMore(movie.imdbID)
+            setRealTimeRes([])
+          }}>
             <div className="realTimeCardGrid">
               <img
                 src={
@@ -66,6 +73,7 @@ function Search({
                     ? normImageUrl(movie.Poster)
                     : `https://via.placeholder.com/300x400.png?text=${movie.Title}`
                 }
+                alt="img"
               />
               <div className="realTimeCardTitle">{movie.Title}</div>
               <div className="realTimeCardYear">{movie.Year ? movie.Year : movie.Type}</div>
@@ -85,6 +93,7 @@ function Search({
         className="buttonFilter"
         onClick={() => {
           setFilterActive(!filterActive);
+          setRealTimeRes([])
         }}
       >
         {filterButton}
@@ -106,6 +115,7 @@ function Search({
             setShow("search");
             setMenuActive(false);
             setFilterActive(false);
+            setRealTimeRes([])
           }}
         >
           <img src={rightImg} alt="Enter" />

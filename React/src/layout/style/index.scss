@@ -349,6 +349,8 @@ code {
           font-family: 'Segoe UI', 'Roboto', 'Oxygen';
           border: none;
           height: fit-content;
+
+          transition: background-color 0.1s;
           .realTimeCardGrid {
             display: grid;
             grid-template-columns: 20% 1fr 20%;
@@ -373,6 +375,11 @@ code {
           }
 
 
+        }
+        li:hover {
+          //border: 1px solid rgb(192, 192, 192);
+          background-color: #121113d5;
+          transition: background-color 0.1s;
         }
       }
     }
@@ -428,12 +435,16 @@ code {
       margin-top: 14px;
       padding: 10px;
       font-family: Courgette;
-      transition: background-color 0.2s;
+      transition: background-color 0.1s;
+    }
+    li:hover {
+      background-color: #322f33;
+      transition: background-color 0.1s;
     }
 
     .selected {
       background-color: #322f33;
-      transition: background-color 0.2s;
+      transition: background-color 0.1s;
     }
 
   }

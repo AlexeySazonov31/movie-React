@@ -88,7 +88,7 @@ function App() {
         setLoading(false);
       });
   };
-
+  
   const handleReadMore = (id) => {
     setLoading(true);
     setPastShow(show);
@@ -115,6 +115,8 @@ function App() {
         handleSelectionFilms={handleSelectionFilms}
         pastShow={pastShow}
         setPastShow={setPastShow}
+        handleReadMore={handleReadMore}
+        setMovies={setMovies}
       />
 
       <main>

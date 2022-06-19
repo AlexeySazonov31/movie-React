@@ -116,6 +116,8 @@ function Header(props) {
           setPastShow={props.setPastShow}
           menuActive={menuActive}
           setMenuActive={setMenuActive}
+          handleReadMore={props.handleReadMore}
+          setMovies={props.setMovies}
         />
 
         <button
