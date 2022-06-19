@@ -259,9 +259,8 @@ code {
   background-color: #19181A;
   color: white;
   padding: 0px 10px;
-  -webkit-transition: height 0.5s ease;
-  transition: height 0.5s ease;
-  overflow: hidden;
+  -webkit-transition: height 0.4s ease;
+  transition: height 0.4s ease;
 }
 
 .header .headerGrid {
@@ -345,6 +344,59 @@ code {
   padding-top: 5px;
 }
 
+.header .headerGrid .search .realTimeResults {
+  position: absolute;
+  background-color: #19181aef;
+  width: 95%;
+  border: 1px solid #a1a1a1;
+  border-top: none;
+  border-radius: 0 0 5px 8px;
+  top: 55px;
+  left: 2.5%;
+}
+
+.header .headerGrid .search .realTimeResults li {
+  padding: 5px 15px;
+  margin: 10px;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen';
+  border: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 1fr 20%;
+      grid-template-columns: 20% 1fr 20%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid img {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  border: 2px solid black;
+  max-width: 50px;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid .realTimeCardTitle {
+  font-size: 20px;
+  font-weight: 400;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding-left: 15px;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid .realTimeCardYear {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 17px;
+  font-weight: 500;
+}
+
 .header .headerGrid h2 {
   font-size: 28px;
   font-family: Courgette;
@@ -424,9 +476,21 @@ code {
   margin-left: 10px;
 }
 
+.overflowHidd {
+  overflow: hidden;
+}
+
 @media (min-width: 600px) {
   .header .headerGrid .search {
     width: 85%;
+  }
+  .header .headerGrid .search .realTimeResults {
+    width: 90%;
+    left: 5%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 85%;
+    margin: auto;
   }
   .header ul {
     width: 65%;
@@ -441,6 +505,13 @@ code {
   .header .headerGrid .search {
     width: 70%;
   }
+  .header .headerGrid .search .realTimeResults {
+    width: 92%;
+    left: 4%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 80%;
+  }
   .header ul {
     width: 55%;
   }
@@ -452,6 +523,13 @@ code {
 @media (min-width: 1200px) {
   .header .headerGrid .search {
     width: 60%;
+  }
+  .header .headerGrid .search .realTimeResults {
+    width: 88%;
+    left: 6%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 75%;
   }
   .header ul {
     width: 50%;

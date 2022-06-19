@@ -80,8 +80,15 @@ function Header(props) {
     setMenuActive(false);
   };
 
+  let classNameHeader;
+  if( menuActive || filterActive ){
+    classNameHeader = 'header overflowHidd';
+  } else {
+    classNameHeader = 'header';
+  }
+
   return (
-    <header className="header" style={ht}>
+    <header className={classNameHeader} style={ht}>
       <div className="headerGrid">
         {props.show === "movie" ? (
           <button
@@ -107,6 +114,7 @@ function Header(props) {
           show={props.show}
           setShow={props.setShow}
           setPastShow={props.setPastShow}
+          menuActive={menuActive}
           setMenuActive={setMenuActive}
         />
 

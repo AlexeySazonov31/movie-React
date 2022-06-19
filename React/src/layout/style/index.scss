@@ -261,8 +261,7 @@ code {
   background-color: #19181A;
   color: white;
   padding: 0px 10px;
-  transition: height 0.5s ease;
-  overflow: hidden;
+  transition: height 0.4s ease;
 
   .headerGrid {
     min-height: 55px;
@@ -333,6 +332,48 @@ code {
         color: white;
         border: none;
         padding-top: 5px;
+      }
+
+      .realTimeResults {
+        position: absolute;
+        background-color: #19181aef;
+        width: 95%;
+        border: 1px solid rgb(161, 161, 161);
+        border-top: none;
+        border-radius: 0 0 5px 8px;
+        top: 55px;
+        left: 2.5%;
+        li {
+          padding: 5px 15px;
+          margin: 10px;
+          font-family: 'Segoe UI', 'Roboto', 'Oxygen';
+          border: none;
+          height: fit-content;
+          .realTimeCardGrid {
+            display: grid;
+            grid-template-columns: 20% 1fr 20%;
+            align-items: center;
+
+            img {
+              justify-self: start;
+              border: 2px solid black;
+              max-width: 50px;
+            }
+            .realTimeCardTitle {
+              font-size: 20px;
+              font-weight: 400;
+              justify-self: center;
+              padding-left: 15px;
+            }
+            .realTimeCardYear {
+              justify-self: end;
+              font-size: 17px;
+              font-weight: 500;
+            }
+          }
+
+
+        }
       }
     }
 
@@ -414,12 +455,27 @@ code {
   }
 
 }
+.overflowHidd {
+  overflow: hidden;
+}
 
 @media (min-width: 600px) {
   .header {
     .headerGrid {
       .search {
         width: 85%;
+
+        .realTimeResults {
+          width: 90%;
+          left: 5%;
+          li {
+            .realTimeCardGrid {
+              width: 85%;
+              margin: auto;
+            }
+          }
+        }
+
       }
     }
 
@@ -440,6 +496,18 @@ code {
     .headerGrid {
       .search {
         width: 70%;
+
+        .realTimeResults {
+          width: 92%;
+          left: 4%;
+          li {
+            .realTimeCardGrid {
+              width: 80%;
+            }
+          }
+        }
+
+
       }
     }
 
@@ -458,6 +526,17 @@ code {
     .headerGrid {
       .search {
         width: 60%;
+
+        .realTimeResults {
+          width: 88%;
+          left: 6%;
+          li {
+            .realTimeCardGrid {
+              width: 75%;
+            }
+          }
+        }
+
       }
     }
 
