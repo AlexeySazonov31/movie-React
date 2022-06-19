@@ -382,6 +382,7 @@ code {
       justify-self: start;
   border: 2px solid black;
   max-width: 50px;
+  border-radius: 3px;
 }
 
 .header .headerGrid .search .realTimeResults li .realTimeCardGrid .realTimeCardTitle {

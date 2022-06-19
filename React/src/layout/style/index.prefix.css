@@ -121,7 +121,7 @@ figure {
 
 hr {
   -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+          box-sizing: content-box;
   height: 0;
 }
 
@@ -182,7 +182,7 @@ input {
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
 }
 
@@ -258,10 +258,9 @@ code {
   background-color: #19181A;
   color: white;
   padding: 0px 10px;
-  -webkit-transition: height 0.5s ease;
-  -o-transition: height 0.5s ease;
-  transition: height 0.5s ease;
-  overflow: hidden;
+  -webkit-transition: height 0.4s ease;
+  -o-transition: height 0.4s ease;
+  transition: height 0.4s ease;
 }
 
 .header .headerGrid {
@@ -269,18 +268,18 @@ code {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 23% 1fr 15%;
-  grid-template-columns: 23% 1fr 15%;
+      grid-template-columns: 23% 1fr 15%;
   justify-items: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* form */
   /* --------- */
 }
 
 .header .headerGrid * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .header .headerGrid .form:hover {
@@ -347,6 +346,70 @@ code {
   padding-top: 5px;
 }
 
+.header .headerGrid .search .realTimeResults {
+  position: absolute;
+  background-color: #19181aef;
+  width: 95%;
+  border: 1px solid #a1a1a1;
+  border-top: none;
+  border-radius: 0 0 5px 8px;
+  top: 55px;
+  left: 2.5%;
+}
+
+.header .headerGrid .search .realTimeResults li {
+  padding: 5px 15px;
+  margin: 10px;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen';
+  border: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 1fr 20%;
+      grid-template-columns: 20% 1fr 20%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid img {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  border: 2px solid black;
+  border-radius: 3px;
+  max-width: 50px;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid .realTimeCardTitle {
+  font-size: 20px;
+  font-weight: 400;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding-left: 15px;
+}
+
+.header .headerGrid .search .realTimeResults li .realTimeCardGrid .realTimeCardYear {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.header .headerGrid .search .realTimeResults li:hover {
+  background-color: #121113d5;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
 .header .headerGrid h2 {
   font-size: 28px;
   font-family: Courgette;
@@ -399,16 +462,23 @@ code {
   margin-top: 14px;
   padding: 10px;
   font-family: Courgette;
-  -webkit-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
+}
+
+.header ul li:hover {
+  background-color: #322f33;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header ul .selected {
   background-color: #322f33;
-  -webkit-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
-  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.1s;
+  -o-transition: background-color 0.1s;
+  transition: background-color 0.1s;
 }
 
 .header .labelDiv {
@@ -419,7 +489,7 @@ code {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   margin: 15px auto;
   padding-bottom: 10px;
@@ -429,16 +499,26 @@ code {
   margin-left: 10px;
 }
 
+.overflowHidd {
+  overflow: hidden;
+}
+
 @media (min-width: 600px) {
   .header .headerGrid .search {
     width: 85%;
   }
-
+  .header .headerGrid .search .realTimeResults {
+    width: 90%;
+    left: 5%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 85%;
+    margin: auto;
+  }
   .header ul {
     width: 65%;
     margin: 0 auto;
   }
-
   .header .labelDiv {
     width: 63%;
   }
@@ -448,11 +528,16 @@ code {
   .header .headerGrid .search {
     width: 70%;
   }
-
+  .header .headerGrid .search .realTimeResults {
+    width: 92%;
+    left: 4%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 80%;
+  }
   .header ul {
     width: 55%;
   }
-
   .header .labelDiv {
     width: 54%;
   }
@@ -462,11 +547,16 @@ code {
   .header .headerGrid .search {
     width: 60%;
   }
-
+  .header .headerGrid .search .realTimeResults {
+    width: 88%;
+    left: 6%;
+  }
+  .header .headerGrid .search .realTimeResults li .realTimeCardGrid {
+    width: 75%;
+  }
   .header ul {
     width: 50%;
   }
-
   .header .labelDiv {
     width: 49%;
   }
@@ -485,8 +575,8 @@ main .movies .buttonFlex {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 main .movies .buttonFlex .buttonShow {
@@ -510,10 +600,10 @@ main .movies .moviesContainer {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 85%;
-  grid-template-columns: 85%;
+      grid-template-columns: 85%;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 15px auto;
   gap: 20px;
 }
@@ -522,7 +612,7 @@ main .movies .moviesContainer .cardMovie {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   justify-items: center;
   text-align: center;
   border: 2px solid #707070;
@@ -545,8 +635,8 @@ main .movies .moviesContainer .cardMovie h3 {
   padding-right: 5%;
   padding-left: 5%;
   -ms-flex-item-align: end;
-  -ms-grid-row-align: end;
-  align-self: end;
+      -ms-grid-row-align: end;
+      align-self: end;
 }
 
 main .movies .rank {
@@ -572,11 +662,11 @@ main .movie {
 main .movie .brightness {
   background-color: rgba(0, 0, 0, 0.64);
   -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   padding: 30px;
   display: -ms-grid;
   display: grid;
-  grid-template: "poster title""table table" / 60% 40%;
+  grid-template: "poster title" "table table" / 60% 40%;
 }
 
 main .movie .brightness .PosterMovieGrid {
@@ -655,7 +745,6 @@ main .movie .plot p {
     font-size: 22px;
     margin-bottom: 30px;
   }
-
   main .movie .plot {
     padding: 40px 100px;
   }
@@ -665,11 +754,9 @@ main .movie .plot p {
   main .movie {
     background-size: 100vw;
   }
-
   main .movie .brightness h3 {
     margin-right: 10%;
   }
-
   main .movie .plot {
     padding: 40px 120px;
   }
@@ -679,12 +766,10 @@ main .movie .plot p {
   main .movie .brightness {
     padding: 40px 15%;
   }
-
   main .movie .brightness table {
     margin-left: 8%;
     margin-right: 8%;
   }
-
   main .movie .plot {
     padding: 40px 140px;
   }
@@ -696,26 +781,22 @@ main .movie .plot p {
     padding: 30px 10%;
     grid-template: "poster table" auto "title table" / 40% 55%;
     -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     row-gap: 20px;
   }
-
   main .movie .brightness .PosterMovieGrid img {
     width: 100%;
     margin: 0;
   }
-
   main .movie .brightness .TitleMovieGrid {
     -ms-flex-item-align: start;
-    -ms-grid-row-align: start;
-    align-self: start;
+        -ms-grid-row-align: start;
+        align-self: start;
   }
-
   main .movie .brightness .TitleMovieGrid h3 {
     padding-left: 18%;
   }
-
   main .movie .plot {
     padding: 40px 180px;
   }
@@ -725,7 +806,6 @@ main .movie .plot p {
   main .movie .brightness {
     padding: 30px 20%;
   }
-
   main .movie .plot {
     padding: 40px 25%;
   }
@@ -741,9 +821,8 @@ main .movie .plot p {
 @media (min-width: 500px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 70%;
-    grid-template-columns: 70%;
+        grid-template-columns: 70%;
   }
-
   main .movies .rank {
     margin-top: 1%;
     margin-left: 9%;
@@ -754,12 +833,10 @@ main .movie .plot p {
   main .movies {
     min-height: 80vh;
   }
-
   main .movies .moviesContainer {
     -ms-grid-columns: 44% 44%;
-    grid-template-columns: 44% 44%;
+        grid-template-columns: 44% 44%;
   }
-
   main .movies .rank {
     margin-top: 1%;
     margin-left: 32%;
@@ -769,9 +846,8 @@ main .movie .plot p {
 @media (min-width: 700px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 40% 40%;
-    grid-template-columns: 40% 40%;
+        grid-template-columns: 40% 40%;
   }
-
   main .movies .rank {
     margin-left: 33%;
   }
@@ -780,9 +856,8 @@ main .movie .plot p {
 @media (min-width: 800px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 35% 35%;
-    grid-template-columns: 35% 35%;
+        grid-template-columns: 35% 35%;
   }
-
   main .movies .rank {
     margin-left: 37%;
   }
@@ -791,9 +866,8 @@ main .movie .plot p {
 @media (min-width: 900px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 29% 29% 29%;
-    grid-template-columns: 29% 29% 29%;
+        grid-template-columns: 29% 29% 29%;
   }
-
   main .movies .rank {
     margin-top: 0.5%;
     margin-left: 41%;
@@ -803,9 +877,8 @@ main .movie .plot p {
 @media (min-width: 1000px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 26% 26% 26%;
-    grid-template-columns: 26% 26% 26%;
+        grid-template-columns: 26% 26% 26%;
   }
-
   main .movies .rank {
     margin-left: 44%;
   }
@@ -814,9 +887,8 @@ main .movie .plot p {
 @media (min-width: 1200px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 23% 23% 23%;
-    grid-template-columns: 23% 23% 23%;
+        grid-template-columns: 23% 23% 23%;
   }
-
   main .movies .rank {
     margin-left: 46%;
   }
@@ -825,9 +897,8 @@ main .movie .plot p {
 @media (min-width: 1450px) {
   main .movies .moviesContainer {
     -ms-grid-columns: 20% 20% 20%;
-    grid-template-columns: 20% 20% 20%;
+        grid-template-columns: 20% 20% 20%;
   }
-
   main .movies .rank {
     margin-left: 47%;
   }
@@ -882,7 +953,6 @@ footer hr {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -894,7 +964,6 @@ footer hr {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
