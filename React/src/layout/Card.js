@@ -16,8 +16,15 @@ function Card(props) {
 
   // the function resizes the image in the link
   function normImageUrl(urlImage) {
-    let idImage = urlImage.match(/\/([A-Za-z0-9@]){10,}\./);
-    return "https://m.media-amazon.com/images/M" + idImage + "_V1_SX500.jpg";
+    if (urlImage !== "N/A" && urlImage !== "nopicture" && urlImage) {
+      return (
+        "https://m.media-amazon.com/images/M" +
+        urlImage.match(/\/([A-Za-z0-9@]){10,}\./) +
+        "_V1_SX500.jpg"
+      );
+    } else {
+      return `http://img.omdbapi.com/?apikey=${process.env.REACT_APP_IMG_TOKEN}&i=${imdbID}`;
+    }
   }
 
   return (
@@ -31,19 +38,15 @@ function Card(props) {
       ) : (
         <></>
       )}
-      {/N\/A/.test(Poster) ? (
-        <img
-          src={`https://via.placeholder.com/300x430.png?text=${Title}`}
-          alt=""
-        />
-      ) : /nopicture/.test(Poster) ? (
-        <img
-          src={`https://via.placeholder.com/300x430.png?text=${Title}`}
-          alt=""
-        />
-      ) : (
-        <img src={normImageUrl(Poster)} alt={Title + "(image)"} />
-      )}
+      <img
+        src={normImageUrl(Poster)}
+        alt={Title + "(image)"}
+        onError={
+          ({ currentTarget }) => {
+          currentTarget.onerror = null; // prevents looping
+          currentTarget.src = `https://via.placeholder.com/300x430.png?text=${Title}})`;
+        }}
+      />
       <h3>{Title}</h3>
       <p>
         <span>

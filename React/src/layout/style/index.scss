@@ -264,9 +264,12 @@ code {
   transition: height 0.4s ease;
 
   .headerGrid {
+    width: 99%;
+    margin: auto;
     min-height: 55px;
     display: grid;
-    grid-template-columns: 23% 1fr 15%;
+    grid-template-columns: 20% 60% 15%;
+    justify-content: center;
     justify-items: center;
     align-items: center;
 
