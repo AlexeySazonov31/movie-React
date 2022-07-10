@@ -16,7 +16,7 @@ function Card(props) {
 
   // the function resizes the image in the link
   function normImageUrl(urlImage) {
-    if (urlImage !== "N/A" && urlImage !== "nopicture" && urlImage) {
+    if (urlImage !== "N/A" && !/nopicture/.test(urlImage) && urlImage) {
       return (
         "https://m.media-amazon.com/images/M" +
         urlImage.match(/\/([A-Za-z0-9@]){10,}\./) +
@@ -41,8 +41,7 @@ function Card(props) {
       <img
         src={normImageUrl(Poster)}
         alt={Title + "(image)"}
-        onError={
-          ({ currentTarget }) => {
+        onError={({ currentTarget }) => {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = `https://via.placeholder.com/300x430.png?text=${Title}})`;
         }}
